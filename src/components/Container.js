@@ -1,6 +1,7 @@
 import React from 'react'
 import { Switch, Route } from "react-router-dom"
 import ChartExample from "./ChartExample/ChartExample";
+import Bargraph from './graphs/Bargraph';
 import Home from "./Home";
 
 const Container = () => {
@@ -13,9 +14,9 @@ const Container = () => {
 
 
                 </Route>
-                {/* <Route path="/day">
-                        <Day  />
-                    </Route> */}
+                <Route path="/graphs/Bargraph">
+                    <Bargraph />
+                </Route>
                 <Route path="/">
                     <Home />
                 </Route>

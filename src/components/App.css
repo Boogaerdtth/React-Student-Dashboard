@@ -18,6 +18,19 @@ nav{
     list-style: none;
      
 }
+.student-links{
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 10vh;
+    background: rgb(73,79,82);
+    color:white;
+    list-style: none;
+
+}
+a{
+    color:white;
+}
 a:visited{
     color:white;
 }
