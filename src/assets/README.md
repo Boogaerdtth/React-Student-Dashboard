@@ -1,1 +1,0 @@
-Assets like images etc

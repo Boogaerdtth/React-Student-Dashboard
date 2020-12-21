@@ -898,18 +898,63 @@ const getRandomRating = () => Math.random() * 5;
 // const getRandomRating = () => 2;
 
 let assignmentRatingAverage = [
-  { assignment: "W1D1-2" },
+  { assignment: "SCRUM" },
   { assignment: "W1D1-1" },
-  { assignment: "W1D1-3" },
   { assignment: "W1D2-1" },
   { assignment: "W1D2-2" },
-  { assignment: "W1D3-1" },
+  { assignment: "W1D2-3" },
+  { assignment: "W1D2-4" },
+  { assignment: "W1D2-5" },
   { assignment: "W1D3-1" },
   { assignment: "W1D3-2" },
-  { assignment: "W1D3-3" },
   { assignment: "W1D3-4" },
   { assignment: "W1D3-5" },
-  { assignment: "W1D3-6" }
+  { assignment: "W1D3 - Project - Guess the number" },
+  { assignment: "W1D4-1" },
+  { assignment: "W1D4 - Project - Kleurentoggle" },
+  { assignment: "W1D5 - Project - Galgje" },
+  { assignment: "W2D1-1" },
+  { assignment: "W2D1-2" },
+  { assignment: "W2D2-1" },
+  { assignment: "W2D2-2" },
+  { assignment: "W2D2-3" },
+  { assignment: "W2D3-1" },
+  { assignment: "W2D3-2" },
+  { assignment: "W2D3-3" },
+  { assignment: "W2D4-1" },
+  { assignment: "W2D4-2" },
+  { assignment: "W2D4-3" },
+  { assignment: "W2D5 - Project - Filmzoeker" },
+  { assignment: "W3D1-1" },
+  { assignment: "W3D1-2" },
+  { assignment: "W3D1-3" },
+  { assignment: "W3D1-4" },
+  { assignment: "W3D2-1" },
+  { assignment: "W3D2-2" },
+  { assignment: "W3D2-3" },
+  { assignment: "W3D3-1" },
+  { assignment: "W3D3-2" },
+  { assignment: "W3D3-3" },
+  { assignment: "W3D3-4" },
+  { assignment: "W3D4-1" },
+  { assignment: "W3D4-2" },
+  { assignment: "W3D5 - Project - Todo-list" },
+  { assignment: "W4D2-1" },
+  { assignment: "W4D2-2" },
+  { assignment: "W4D2-3" },
+  { assignment: "W4D2-4" },
+  { assignment: "W4D3-1" },
+  { assignment: "W4D3-2" },
+  { assignment: "W4D3-3" },
+  { assignment: "W4D3-4" },
+  { assignment: "W4D3-5" },
+  { assignment: "W4D3 - Project - Next-level CSS" },
+  { assignment: "W5D4-1" },
+  { assignment: "W5D5 - Project - Lil_Playlist" },
+  { assignment: "W6D1-1" },
+  { assignment: "W6D2-1" },
+  { assignment: "W6D2 - Project - Eindopdracht" },
+
 ];
 
 assignmentRatingAverage = assignmentRatingAverage.map(avg => ({
@@ -923,11 +968,10 @@ const assignmentRatingAverageWithLabels = assignmentRatingAverage.map(avg => ({
   assignment: avg.assignment,
   difficultyRating: avg.difficultyRating,
   enjoymentRating: avg.enjoymentRating,
-  label: `Opdracht ${
-    avg.assignment
-  }, difficultyRating: ${avg.difficultyRating.toFixed(
-    1
-  )}, enjoymentRating: ${avg.enjoymentRating.toFixed(1)}`
+  label: `Opdracht ${avg.assignment
+    }, difficultyRating: ${avg.difficultyRating.toFixed(
+      1
+    )}, enjoymentRating: ${avg.enjoymentRating.toFixed(1)}`
 }));
 
 const chartExample = () => (
@@ -964,7 +1008,7 @@ const chartExample = () => (
         )}
       />
       <VictoryAxis dependentAxis />
-    </VictoryChart>
+    </VictoryChart >
 
     <VictoryChart domainPadding={15} theme={wincTheme}>
       <VictoryLine
