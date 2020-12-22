@@ -478,6 +478,7 @@ function Bargraph(studentData) {
     const newStudentData = studentData.studentData.student;
     const assignmentData = newStudentData.map(x => x.assignments)
     const flattenArray = assignmentData.flat()
+    // console.log(flattenArray)
     const uniqueAssignmentNames = assignmentData[0].map(x => x.name)
     let sortedAssignments = [];
     uniqueAssignmentNames.forEach(assignment => {
@@ -507,22 +508,22 @@ function Bargraph(studentData) {
 
     // // Add label
     const assignmentRatingAverageWithLabels = assignmentRatingAverage.map(avg => ({
-        assignment: avg.name,
+        assignment: avg.assignment,
         difficultyRating: avg.difficultyRating,
-        enjoymentRating: avg.funRating,
-        label: `Opdracht ${avg.name}, 
+        enjoymentRating: avg.enjoymentRating,
+        label: `Opdracht ${avg.assignment}, 
             difficultyRating: ${avg.difficultyRating},  
-            enjoymentRating: ${avg.funRating}`
-        // .toFixed(1)
-
+            enjoymentRating: ${avg.enjoymentRating}`
     }))
+    console.log(assignmentRatingAverageWithLabels)
+
     return (
         <>
             <VictoryChart domainPadding={15} theme={wincTheme}>
                 <VictoryGroup offset={20}>
                     <VictoryBar
                         labelComponent={<VictoryTooltip />}
-                        data={assignmentRatingAverage}
+                        data={assignmentRatingAverageWithLabels}
                         x="assignment"
                         y="difficultyRating"
                         tickValues={[1, 2, 3, 4, 5]}
@@ -532,7 +533,7 @@ function Bargraph(studentData) {
                     />
                     <VictoryBar
                         labelComponent={<VictoryTooltip />}
-                        data={assignmentRatingAverage}
+                        data={assignmentRatingAverageWithLabels}
                         x="assignment"
                         y="enjoymentRating"
                         tickValues={[1, 2, 3, 4, 5]}
@@ -545,7 +546,7 @@ function Bargraph(studentData) {
                     // tickValues specifies both the number of ticks and where
                     // they are placed on the axis
                     tickValues={[1, 2, 3, 4, 5]}
-                    tickFormat={assignmentRatingAverage.map(
+                    tickFormat={assignmentRatingAverageWithLabels.map(
                         avg => avg.assignment
                     )}
                 />
