@@ -4,7 +4,7 @@ import {
     VictoryChart,
     VictoryAxis,
     VictoryTooltip,
-    // VictoryLine,
+    VictoryLine,
     VictoryGroup
 } from "victory"
 
@@ -502,7 +502,7 @@ function Bargraph(studentData) {
         difficultyRating: avg.difficultyRating,
         enjoymentRating: avg.funRating
     }));
-    console.log(assignmentRatingAverage)
+    // console.log(assignmentRatingAverage)
 
 
     // // Add label
@@ -522,24 +522,22 @@ function Bargraph(studentData) {
                 <VictoryGroup offset={20}>
                     <VictoryBar
                         labelComponent={<VictoryTooltip />}
-                        // data={studentData.studentData.student[studentData.studentData.student.id].assignments}
                         data={assignmentRatingAverage}
                         x="assignment"
                         y="difficultyRating"
                         tickValues={[1, 2, 3, 4, 5]}
                         tickFormat={assignmentRatingAverageWithLabels.map(
-                            avg => avg.name
+                            avg => avg.assignment
                         )}
                     />
                     <VictoryBar
                         labelComponent={<VictoryTooltip />}
-                        // data={studentData.studentData.student[studentData.studentData.student.id].assignments}
                         data={assignmentRatingAverage}
                         x="assignment"
                         y="enjoymentRating"
                         tickValues={[1, 2, 3, 4, 5]}
                         tickFormat={assignmentRatingAverageWithLabels.map(
-                            avg => avg.name
+                            avg => avg.assignment
                         )}
                     />
                 </VictoryGroup>
@@ -547,12 +545,40 @@ function Bargraph(studentData) {
                     // tickValues specifies both the number of ticks and where
                     // they are placed on the axis
                     tickValues={[1, 2, 3, 4, 5]}
-                    tickFormat={assignmentRatingAverageWithLabels.map(
-                        avg => avg.name
+                    tickFormat={assignmentRatingAverage.map(
+                        avg => avg.assignment
                     )}
                 />
                 <VictoryAxis dependentAxis />
             </VictoryChart >
+
+            <VictoryChart domainPadding={15} theme={wincTheme}>
+                <VictoryLine
+                    style={{
+                        data: { stroke: "#c43a31" },
+                        parent: { border: "1px solid #ccc" }
+                    }}
+                    data={assignmentRatingAverage}
+                    x="assignment"
+                    y="difficultyRating"
+                />
+                <VictoryLine
+                    style={{
+                        data: { stroke: "#ff00ff" },
+                        parent: { border: "1px solid #ccc" }
+                    }}
+                    data={assignmentRatingAverage}
+                    x="assignment"
+                    y="enjoymentRating"
+                />
+                <VictoryAxis
+                    // tickValues specifies both the number of ticks and where
+                    // they are placed on the axis
+                    tickValues={[1, 2, 3, 4, 5]}
+                    tickFormat={assignmentRatingAverage.map(avg => avg.assignment)}
+                />
+                <VictoryAxis dependentAxis />
+            </VictoryChart>
 
 
         </>
