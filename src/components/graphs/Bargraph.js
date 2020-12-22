@@ -4,11 +4,9 @@ import {
     VictoryChart,
     VictoryAxis,
     VictoryTooltip,
-    VictoryLine,
+    // VictoryLine,
     VictoryGroup
 } from "victory"
-const studentData = require('../Studentdata.json');
-// ik moet zorgen dat er data wordt door gegeven aan de hand van functies per student
 
 
 const wincTheme = {
@@ -470,106 +468,94 @@ let assignmentRatingAverage = [
 
 ];
 
-function Bargraph() {
-    // const newStudentData = studentData.student;
-    // const assignmentData = newStudentData.map(x => x.assignments)
-    // const flattenArray = assignmentData.flat()
-    // const uniqueAssignmentNames = assignmentData[0].map(x => x.name)
-    // let sortedAssignments = [];
-    // uniqueAssignmentNames.forEach(assignment => {
-    //     let groupedAssignments = flattenArray.filter(x => x.name === assignment)
-    //     sortedAssignments.push(groupedAssignments)
-    // });
-    // let assignmentsTotal = [];
-    // sortedAssignments.forEach(assignmentSet => {
-    //     const reducer = assignmentSet.reduce((total, current) => {
-    //         return { name: current.name, difficultyRating: total.difficultyRating + current.difficultyRating, funRating: total.funRating + current.funRating }
-    //     });
-    //     assignmentsTotal.push(reducer)
-    // })
-    // const assignmentsAverage = assignmentsTotal.map((current) => {
-    //     return { name: current.name, difficultyRating: (current.difficultyRating / newStudentData.length), funRating: (current.funRating / newStudentData.length) }
-    // });
+// const difficultyRating = () => {
 
+// }
+
+
+
+function Bargraph(studentData) {
+    const newStudentData = studentData.studentData.student;
+    const assignmentData = newStudentData.map(x => x.assignments)
+    const flattenArray = assignmentData.flat()
+    const uniqueAssignmentNames = assignmentData[0].map(x => x.name)
+    let sortedAssignments = [];
+    uniqueAssignmentNames.forEach(assignment => {
+        let groupedAssignments = flattenArray.filter(x => x.name === assignment)
+        sortedAssignments.push(groupedAssignments)
+    });
+    let assignmentsTotal = [];
+    sortedAssignments.forEach(assignmentSet => {
+        const reducer = assignmentSet.reduce((total, current) => {
+            return { name: current.name, difficultyRating: total.difficultyRating + current.difficultyRating, funRating: total.funRating + current.funRating }
+        });
+        assignmentsTotal.push(reducer)
+    })
+    const assignmentsAverage = assignmentsTotal.map((current) => {
+        return { name: current.name, difficultyRating: (current.difficultyRating / newStudentData.length), funRating: (current.funRating / newStudentData.length) }
+    });
+    // console.log(assignmentsAverage)
+    // bovenstaand heeft alle gemiddldes!!
+
+    assignmentRatingAverage = assignmentsAverage.map(avg => ({
+        assignment: avg.name,
+        difficultyRating: avg.difficultyRating,
+        enjoymentRating: avg.funRating
+    }));
+    console.log(assignmentRatingAverage)
 
 
     // // Add label
-    // const assignmentRatingAverageWithLabels = assignmentRatingAverage.map(avg => ({
-    //     assignment: avg.assignment,
-    //     difficultyRating: avg.difficultyRating,
-    //     enjoymentRating: avg.enjoymentRating,
-    //     label: `Opdracht ${avg.assignment}, 
-    //         difficultyRating: ${avg.difficultyRating.toFixed(1)}, 
-    //         enjoymentRating: ${avg.enjoymentRating.toFixed(1)}`
+    const assignmentRatingAverageWithLabels = assignmentRatingAverage.map(avg => ({
+        assignment: avg.name,
+        difficultyRating: avg.difficultyRating,
+        enjoymentRating: avg.funRating,
+        label: `Opdracht ${avg.name}, 
+            difficultyRating: ${avg.difficultyRating},  
+            enjoymentRating: ${avg.funRating}`
+        // .toFixed(1)
 
-    // }))
-    console.log('hallo')
-
+    }))
     return (
-        <h1>hallo</h1>
-        //         <>
-        //             <VictoryChart domainPadding={15} theme={wincTheme}>
-        //                 <VictoryGroup offset={20}>
-        //                     <VictoryBar
-        //                         labelComponent={<VictoryTooltip />}
-        //                         data={assignmentRatingAverageWithLabels}
-        //                         x="assignment"
-        //                         y="difficultyRating"
-        //                         tickValues={[1, 2, 3, 4, 5]}
-        //                         tickFormat={assignmentRatingAverageWithLabels.map(
-        //                             avg => avg.assignment
-        //                         )}
-        //                     />
-        //                     <VictoryBar
-        //                         labelComponent={<VictoryTooltip />}
-        //                         data={assignmentRatingAverageWithLabels}
-        //                         x="assignment"
-        //                         y="enjoymentRating"
-        //                         tickValues={[1, 2, 3, 4, 5]}
-        //                         tickFormat={assignmentRatingAverageWithLabels.map(
-        //                             avg => avg.assignment
-        //                         )}
-        //                     />
-        //                 </VictoryGroup>
-        //                 <VictoryAxis
-        //                     // tickValues specifies both the number of ticks and where
-        //                     // they are placed on the axis
-        //                     tickValues={[1, 2, 3, 4, 5]}
-        //                     tickFormat={assignmentRatingAverageWithLabels.map(
-        //                         avg => avg.assignment
-        //                     )}
-        //                 />
-        //                 <VictoryAxis dependentAxis />
-        //             </VictoryChart >
+        <>
+            <VictoryChart domainPadding={15} theme={wincTheme}>
+                <VictoryGroup offset={20}>
+                    <VictoryBar
+                        labelComponent={<VictoryTooltip />}
+                        // data={studentData.studentData.student[studentData.studentData.student.id].assignments}
+                        data={assignmentRatingAverage}
+                        x="assignment"
+                        y="difficultyRating"
+                        tickValues={[1, 2, 3, 4, 5]}
+                        tickFormat={assignmentRatingAverageWithLabels.map(
+                            avg => avg.name
+                        )}
+                    />
+                    <VictoryBar
+                        labelComponent={<VictoryTooltip />}
+                        // data={studentData.studentData.student[studentData.studentData.student.id].assignments}
+                        data={assignmentRatingAverage}
+                        x="assignment"
+                        y="enjoymentRating"
+                        tickValues={[1, 2, 3, 4, 5]}
+                        tickFormat={assignmentRatingAverageWithLabels.map(
+                            avg => avg.name
+                        )}
+                    />
+                </VictoryGroup>
+                <VictoryAxis
+                    // tickValues specifies both the number of ticks and where
+                    // they are placed on the axis
+                    tickValues={[1, 2, 3, 4, 5]}
+                    tickFormat={assignmentRatingAverageWithLabels.map(
+                        avg => avg.name
+                    )}
+                />
+                <VictoryAxis dependentAxis />
+            </VictoryChart >
 
-        //             <VictoryChart domainPadding={15} theme={wincTheme}>
-        //                 <VictoryLine
-        //                     style={{
-        //                         data: { stroke: "#c43a31" },
-        //                         parent: { border: "1px solid #ccc" }
-        //                     }}
-        //                     data={assignmentRatingAverage}
-        //                     x="assignment"
-        //                     y="difficultyRating"
-        //                 />
-        //                 <VictoryLine
-        //                     style={{
-        //                         data: { stroke: "#ff00ff" },
-        //                         parent: { border: "1px solid #ccc" }
-        //                     }}
-        //                     data={assignmentRatingAverage}
-        //                     x="assignment"
-        //                     y="enjoymentRating"
-        //                 />
-        //                 <VictoryAxis
-        //                     // tickValues specifies both the number of ticks and where
-        //                     // they are placed on the axis
-        //                     tickValues={[1, 2, 3, 4, 5]}
-        //                     tickFormat={assignmentRatingAverage.map(avg => avg.assignment)}
-        //                 />
-        //                 <VictoryAxis dependentAxis />
-        //             </VictoryChart>
-        //         </>
+
+        </>
     )
 }
 export default Bargraph

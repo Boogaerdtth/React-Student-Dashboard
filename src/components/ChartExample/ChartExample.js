@@ -8,493 +8,493 @@ import {
   VictoryGroup
 } from "victory";
 
-const grayscale = {
-  area: {
-    style: {
-      data: {
-        fill: "#252525"
-      },
-      labels: {
-        fontFamily:
-          "'Gill Sans', 'Gill Sans MT', 'Seravek', 'Trebuchet MS', sans-serif",
-        fontSize: 14,
-        letterSpacing: "normal",
-        padding: 10,
-        fill: "#252525",
-        stroke: "transparent"
-      }
-    },
-    width: 450,
-    height: 300,
-    padding: 50,
-    colorScale: [
-      "#252525",
-      "#525252",
-      "#737373",
-      "#969696",
-      "#bdbdbd",
-      "#d9d9d9",
-      "#f0f0f0"
-    ]
-  },
-  axis: {
-    style: {
-      axis: {
-        fill: "transparent",
-        stroke: "#252525",
-        strokeWidth: 1,
-        strokeLinecap: "round",
-        strokeLinejoin: "round"
-      },
-      axisLabel: {
-        textAnchor: "middle",
-        fontFamily:
-          "'Gill Sans', 'Gill Sans MT', 'Seravek', 'Trebuchet MS', sans-serif",
-        fontSize: 14,
-        letterSpacing: "normal",
-        padding: 25,
-        fill: "#252525",
-        stroke: "transparent"
-      },
-      grid: {
-        fill: "none",
-        stroke: "none",
-        pointerEvents: "painted"
-      },
-      ticks: {
-        fill: "transparent",
-        size: 1,
-        stroke: "transparent"
-      },
-      tickLabels: {
-        fontFamily:
-          "'Gill Sans', 'Gill Sans MT', 'Seravek', 'Trebuchet MS', sans-serif",
-        fontSize: 14,
-        letterSpacing: "normal",
-        padding: 10,
-        fill: "#252525",
-        stroke: "transparent"
-      }
-    },
-    width: 450,
-    height: 300,
-    padding: 50,
-    colorScale: [
-      "#252525",
-      "#525252",
-      "#737373",
-      "#969696",
-      "#bdbdbd",
-      "#d9d9d9",
-      "#f0f0f0"
-    ]
-  },
-  bar: {
-    style: {
-      data: {
-        fill: "#252525",
-        padding: 8,
-        strokeWidth: 0
-      },
-      labels: {
-        fontFamily:
-          "'Gill Sans', 'Gill Sans MT', 'Seravek', 'Trebuchet MS', sans-serif",
-        fontSize: 14,
-        letterSpacing: "normal",
-        padding: 10,
-        fill: "#252525",
-        stroke: "transparent"
-      }
-    },
-    width: 450,
-    height: 300,
-    padding: 50,
-    colorScale: [
-      "#252525",
-      "#525252",
-      "#737373",
-      "#969696",
-      "#bdbdbd",
-      "#d9d9d9",
-      "#f0f0f0"
-    ]
-  },
-  boxplot: {
-    style: {
-      max: {
-        padding: 8,
-        stroke: "#252525",
-        strokeWidth: 1
-      },
-      maxLabels: {
-        fontFamily:
-          "'Gill Sans', 'Gill Sans MT', 'Seravek', 'Trebuchet MS', sans-serif",
-        fontSize: 14,
-        letterSpacing: "normal",
-        padding: 10,
-        fill: "#252525",
-        stroke: "transparent"
-      },
-      median: {
-        padding: 8,
-        stroke: "#252525",
-        strokeWidth: 1
-      },
-      medianLabels: {
-        fontFamily:
-          "'Gill Sans', 'Gill Sans MT', 'Seravek', 'Trebuchet MS', sans-serif",
-        fontSize: 14,
-        letterSpacing: "normal",
-        padding: 10,
-        fill: "#252525",
-        stroke: "transparent"
-      },
-      min: {
-        padding: 8,
-        stroke: "#252525",
-        strokeWidth: 1
-      },
-      minLabels: {
-        fontFamily:
-          "'Gill Sans', 'Gill Sans MT', 'Seravek', 'Trebuchet MS', sans-serif",
-        fontSize: 14,
-        letterSpacing: "normal",
-        padding: 10,
-        fill: "#252525",
-        stroke: "transparent"
-      },
-      q1: {
-        padding: 8,
-        fill: "#969696"
-      },
-      q1Labels: {
-        fontFamily:
-          "'Gill Sans', 'Gill Sans MT', 'Seravek', 'Trebuchet MS', sans-serif",
-        fontSize: 14,
-        letterSpacing: "normal",
-        padding: 10,
-        fill: "#252525",
-        stroke: "transparent"
-      },
-      q3: {
-        padding: 8,
-        fill: "#969696"
-      },
-      q3Labels: {
-        fontFamily:
-          "'Gill Sans', 'Gill Sans MT', 'Seravek', 'Trebuchet MS', sans-serif",
-        fontSize: 14,
-        letterSpacing: "normal",
-        padding: 10,
-        fill: "#252525",
-        stroke: "transparent"
-      }
-    },
-    boxWidth: 20,
-    width: 450,
-    height: 300,
-    padding: 50,
-    colorScale: [
-      "#252525",
-      "#525252",
-      "#737373",
-      "#969696",
-      "#bdbdbd",
-      "#d9d9d9",
-      "#f0f0f0"
-    ]
-  },
-  candlestick: {
-    style: {
-      data: {
-        stroke: "#252525",
-        strokeWidth: 1
-      },
-      labels: {
-        fontFamily:
-          "'Gill Sans', 'Gill Sans MT', 'Seravek', 'Trebuchet MS', sans-serif",
-        fontSize: 14,
-        letterSpacing: "normal",
-        padding: 10,
-        fill: "#252525",
-        stroke: "transparent"
-      }
-    },
-    candleColors: {
-      positive: "#ffffff",
-      negative: "#252525"
-    },
-    width: 450,
-    height: 300,
-    padding: 50,
-    colorScale: [
-      "#252525",
-      "#525252",
-      "#737373",
-      "#969696",
-      "#bdbdbd",
-      "#d9d9d9",
-      "#f0f0f0"
-    ]
-  },
-  chart: {
-    width: 450,
-    height: 300,
-    padding: 50,
-    colorScale: [
-      "#252525",
-      "#525252",
-      "#737373",
-      "#969696",
-      "#bdbdbd",
-      "#d9d9d9",
-      "#f0f0f0"
-    ]
-  },
-  errorbar: {
-    borderWidth: 8,
-    style: {
-      data: {
-        fill: "transparent",
-        stroke: "#252525",
-        strokeWidth: 2
-      },
-      labels: {
-        fontFamily:
-          "'Gill Sans', 'Gill Sans MT', 'Seravek', 'Trebuchet MS', sans-serif",
-        fontSize: 14,
-        letterSpacing: "normal",
-        padding: 10,
-        fill: "#252525",
-        stroke: "transparent"
-      }
-    },
-    width: 450,
-    height: 300,
-    padding: 50,
-    colorScale: [
-      "#252525",
-      "#525252",
-      "#737373",
-      "#969696",
-      "#bdbdbd",
-      "#d9d9d9",
-      "#f0f0f0"
-    ]
-  },
-  group: {
-    colorScale: [
-      "#252525",
-      "#525252",
-      "#737373",
-      "#969696",
-      "#bdbdbd",
-      "#d9d9d9",
-      "#f0f0f0"
-    ],
-    width: 450,
-    height: 300,
-    padding: 50
-  },
-  legend: {
-    colorScale: [
-      "#252525",
-      "#525252",
-      "#737373",
-      "#969696",
-      "#bdbdbd",
-      "#d9d9d9",
-      "#f0f0f0"
-    ],
-    gutter: 10,
-    orientation: "vertical",
-    titleOrientation: "top",
-    style: {
-      data: {
-        type: "circle"
-      },
-      labels: {
-        fontFamily:
-          "'Gill Sans', 'Gill Sans MT', 'Seravek', 'Trebuchet MS', sans-serif",
-        fontSize: 14,
-        letterSpacing: "normal",
-        padding: 10,
-        fill: "#252525",
-        stroke: "transparent"
-      },
-      title: {
-        fontFamily:
-          "'Gill Sans', 'Gill Sans MT', 'Seravek', 'Trebuchet MS', sans-serif",
-        fontSize: 14,
-        letterSpacing: "normal",
-        padding: 5,
-        fill: "#252525",
-        stroke: "transparent"
-      }
-    }
-  },
-  line: {
-    style: {
-      data: {
-        fill: "transparent",
-        stroke: "#252525",
-        strokeWidth: 2
-      },
-      labels: {
-        fontFamily:
-          "'Gill Sans', 'Gill Sans MT', 'Seravek', 'Trebuchet MS', sans-serif",
-        fontSize: 14,
-        letterSpacing: "normal",
-        padding: 10,
-        fill: "#252525",
-        stroke: "transparent"
-      }
-    },
-    width: 450,
-    height: 300,
-    padding: 50,
-    colorScale: [
-      "#252525",
-      "#525252",
-      "#737373",
-      "#969696",
-      "#bdbdbd",
-      "#d9d9d9",
-      "#f0f0f0"
-    ]
-  },
-  pie: {
-    style: {
-      data: {
-        padding: 10,
-        stroke: "transparent",
-        strokeWidth: 1
-      },
-      labels: {
-        fontFamily:
-          "'Gill Sans', 'Gill Sans MT', 'Seravek', 'Trebuchet MS', sans-serif",
-        fontSize: 14,
-        letterSpacing: "normal",
-        padding: 20,
-        fill: "#252525",
-        stroke: "transparent"
-      }
-    },
-    colorScale: [
-      "#252525",
-      "#525252",
-      "#737373",
-      "#969696",
-      "#bdbdbd",
-      "#d9d9d9",
-      "#f0f0f0"
-    ],
-    width: 400,
-    height: 400,
-    padding: 50
-  },
-  scatter: {
-    style: {
-      data: {
-        fill: "#252525",
-        stroke: "transparent",
-        strokeWidth: 0
-      },
-      labels: {
-        fontFamily:
-          "'Gill Sans', 'Gill Sans MT', 'Seravek', 'Trebuchet MS', sans-serif",
-        fontSize: 14,
-        letterSpacing: "normal",
-        padding: 10,
-        fill: "#252525",
-        stroke: "transparent"
-      }
-    },
-    width: 450,
-    height: 300,
-    padding: 50,
-    colorScale: [
-      "#252525",
-      "#525252",
-      "#737373",
-      "#969696",
-      "#bdbdbd",
-      "#d9d9d9",
-      "#f0f0f0"
-    ]
-  },
-  stack: {
-    colorScale: [
-      "#252525",
-      "#525252",
-      "#737373",
-      "#969696",
-      "#bdbdbd",
-      "#d9d9d9",
-      "#f0f0f0"
-    ],
-    width: 450,
-    height: 300,
-    padding: 50
-  },
-  tooltip: {
-    style: {
-      fontFamily:
-        "'Gill Sans', 'Gill Sans MT', 'Seravek', 'Trebuchet MS', sans-serif",
-      fontSize: 14,
-      letterSpacing: "normal",
-      padding: 5,
-      fill: "#252525",
-      stroke: "transparent",
-      pointerEvents: "none"
-    },
-    flyoutStyle: {
-      stroke: "#252525",
-      strokeWidth: 1,
-      fill: "#f0f0f0",
-      pointerEvents: "none"
-    },
-    cornerRadius: 5,
-    pointerLength: 10
-  },
-  voronoi: {
-    style: {
-      data: {
-        fill: "transparent",
-        stroke: "transparent",
-        strokeWidth: 0
-      },
-      labels: {
-        fontFamily:
-          "'Gill Sans', 'Gill Sans MT', 'Seravek', 'Trebuchet MS', sans-serif",
-        fontSize: 14,
-        letterSpacing: "normal",
-        padding: 5,
-        fill: "#252525",
-        stroke: "transparent",
-        pointerEvents: "none"
-      },
-      flyout: {
-        stroke: "#252525",
-        strokeWidth: 1,
-        fill: "#f0f0f0",
-        pointerEvents: "none"
-      }
-    },
-    width: 450,
-    height: 300,
-    padding: 50,
-    colorScale: [
-      "#252525",
-      "#525252",
-      "#737373",
-      "#969696",
-      "#bdbdbd",
-      "#d9d9d9",
-      "#f0f0f0"
-    ]
-  }
-};
+// const grayscale = {
+//   area: {
+//     style: {
+//       data: {
+//         fill: "#252525"
+//       },
+//       labels: {
+//         fontFamily:
+//           "'Gill Sans', 'Gill Sans MT', 'Seravek', 'Trebuchet MS', sans-serif",
+//         fontSize: 14,
+//         letterSpacing: "normal",
+//         padding: 10,
+//         fill: "#252525",
+//         stroke: "transparent"
+//       }
+//     },
+//     width: 450,
+//     height: 300,
+//     padding: 50,
+//     colorScale: [
+//       "#252525",
+//       "#525252",
+//       "#737373",
+//       "#969696",
+//       "#bdbdbd",
+//       "#d9d9d9",
+//       "#f0f0f0"
+//     ]
+//   },
+//   axis: {
+//     style: {
+//       axis: {
+//         fill: "transparent",
+//         stroke: "#252525",
+//         strokeWidth: 1,
+//         strokeLinecap: "round",
+//         strokeLinejoin: "round"
+//       },
+//       axisLabel: {
+//         textAnchor: "middle",
+//         fontFamily:
+//           "'Gill Sans', 'Gill Sans MT', 'Seravek', 'Trebuchet MS', sans-serif",
+//         fontSize: 14,
+//         letterSpacing: "normal",
+//         padding: 25,
+//         fill: "#252525",
+//         stroke: "transparent"
+//       },
+//       grid: {
+//         fill: "none",
+//         stroke: "none",
+//         pointerEvents: "painted"
+//       },
+//       ticks: {
+//         fill: "transparent",
+//         size: 1,
+//         stroke: "transparent"
+//       },
+//       tickLabels: {
+//         fontFamily:
+//           "'Gill Sans', 'Gill Sans MT', 'Seravek', 'Trebuchet MS', sans-serif",
+//         fontSize: 14,
+//         letterSpacing: "normal",
+//         padding: 10,
+//         fill: "#252525",
+//         stroke: "transparent"
+//       }
+//     },
+//     width: 450,
+//     height: 300,
+//     padding: 50,
+//     colorScale: [
+//       "#252525",
+//       "#525252",
+//       "#737373",
+//       "#969696",
+//       "#bdbdbd",
+//       "#d9d9d9",
+//       "#f0f0f0"
+//     ]
+//   },
+//   bar: {
+//     style: {
+//       data: {
+//         fill: "#252525",
+//         padding: 8,
+//         strokeWidth: 0
+//       },
+//       labels: {
+//         fontFamily:
+//           "'Gill Sans', 'Gill Sans MT', 'Seravek', 'Trebuchet MS', sans-serif",
+//         fontSize: 14,
+//         letterSpacing: "normal",
+//         padding: 10,
+//         fill: "#252525",
+//         stroke: "transparent"
+//       }
+//     },
+//     width: 450,
+//     height: 300,
+//     padding: 50,
+//     colorScale: [
+//       "#252525",
+//       "#525252",
+//       "#737373",
+//       "#969696",
+//       "#bdbdbd",
+//       "#d9d9d9",
+//       "#f0f0f0"
+//     ]
+//   },
+//   boxplot: {
+//     style: {
+//       max: {
+//         padding: 8,
+//         stroke: "#252525",
+//         strokeWidth: 1
+//       },
+//       maxLabels: {
+//         fontFamily:
+//           "'Gill Sans', 'Gill Sans MT', 'Seravek', 'Trebuchet MS', sans-serif",
+//         fontSize: 14,
+//         letterSpacing: "normal",
+//         padding: 10,
+//         fill: "#252525",
+//         stroke: "transparent"
+//       },
+//       median: {
+//         padding: 8,
+//         stroke: "#252525",
+//         strokeWidth: 1
+//       },
+//       medianLabels: {
+//         fontFamily:
+//           "'Gill Sans', 'Gill Sans MT', 'Seravek', 'Trebuchet MS', sans-serif",
+//         fontSize: 14,
+//         letterSpacing: "normal",
+//         padding: 10,
+//         fill: "#252525",
+//         stroke: "transparent"
+//       },
+//       min: {
+//         padding: 8,
+//         stroke: "#252525",
+//         strokeWidth: 1
+//       },
+//       minLabels: {
+//         fontFamily:
+//           "'Gill Sans', 'Gill Sans MT', 'Seravek', 'Trebuchet MS', sans-serif",
+//         fontSize: 14,
+//         letterSpacing: "normal",
+//         padding: 10,
+//         fill: "#252525",
+//         stroke: "transparent"
+//       },
+//       q1: {
+//         padding: 8,
+//         fill: "#969696"
+//       },
+//       q1Labels: {
+//         fontFamily:
+//           "'Gill Sans', 'Gill Sans MT', 'Seravek', 'Trebuchet MS', sans-serif",
+//         fontSize: 14,
+//         letterSpacing: "normal",
+//         padding: 10,
+//         fill: "#252525",
+//         stroke: "transparent"
+//       },
+//       q3: {
+//         padding: 8,
+//         fill: "#969696"
+//       },
+//       q3Labels: {
+//         fontFamily:
+//           "'Gill Sans', 'Gill Sans MT', 'Seravek', 'Trebuchet MS', sans-serif",
+//         fontSize: 14,
+//         letterSpacing: "normal",
+//         padding: 10,
+//         fill: "#252525",
+//         stroke: "transparent"
+//       }
+//     },
+//     boxWidth: 20,
+//     width: 450,
+//     height: 300,
+//     padding: 50,
+//     colorScale: [
+//       "#252525",
+//       "#525252",
+//       "#737373",
+//       "#969696",
+//       "#bdbdbd",
+//       "#d9d9d9",
+//       "#f0f0f0"
+//     ]
+//   },
+//   candlestick: {
+//     style: {
+//       data: {
+//         stroke: "#252525",
+//         strokeWidth: 1
+//       },
+//       labels: {
+//         fontFamily:
+//           "'Gill Sans', 'Gill Sans MT', 'Seravek', 'Trebuchet MS', sans-serif",
+//         fontSize: 14,
+//         letterSpacing: "normal",
+//         padding: 10,
+//         fill: "#252525",
+//         stroke: "transparent"
+//       }
+//     },
+//     candleColors: {
+//       positive: "#ffffff",
+//       negative: "#252525"
+//     },
+//     width: 450,
+//     height: 300,
+//     padding: 50,
+//     colorScale: [
+//       "#252525",
+//       "#525252",
+//       "#737373",
+//       "#969696",
+//       "#bdbdbd",
+//       "#d9d9d9",
+//       "#f0f0f0"
+//     ]
+//   },
+//   chart: {
+//     width: 450,
+//     height: 300,
+//     padding: 50,
+//     colorScale: [
+//       "#252525",
+//       "#525252",
+//       "#737373",
+//       "#969696",
+//       "#bdbdbd",
+//       "#d9d9d9",
+//       "#f0f0f0"
+//     ]
+//   },
+//   errorbar: {
+//     borderWidth: 8,
+//     style: {
+//       data: {
+//         fill: "transparent",
+//         stroke: "#252525",
+//         strokeWidth: 2
+//       },
+//       labels: {
+//         fontFamily:
+//           "'Gill Sans', 'Gill Sans MT', 'Seravek', 'Trebuchet MS', sans-serif",
+//         fontSize: 14,
+//         letterSpacing: "normal",
+//         padding: 10,
+//         fill: "#252525",
+//         stroke: "transparent"
+//       }
+//     },
+//     width: 450,
+//     height: 300,
+//     padding: 50,
+//     colorScale: [
+//       "#252525",
+//       "#525252",
+//       "#737373",
+//       "#969696",
+//       "#bdbdbd",
+//       "#d9d9d9",
+//       "#f0f0f0"
+//     ]
+//   },
+//   group: {
+//     colorScale: [
+//       "#252525",
+//       "#525252",
+//       "#737373",
+//       "#969696",
+//       "#bdbdbd",
+//       "#d9d9d9",
+//       "#f0f0f0"
+//     ],
+//     width: 450,
+//     height: 300,
+//     padding: 50
+//   },
+//   legend: {
+//     colorScale: [
+//       "#252525",
+//       "#525252",
+//       "#737373",
+//       "#969696",
+//       "#bdbdbd",
+//       "#d9d9d9",
+//       "#f0f0f0"
+//     ],
+//     gutter: 10,
+//     orientation: "vertical",
+//     titleOrientation: "top",
+//     style: {
+//       data: {
+//         type: "circle"
+//       },
+//       labels: {
+//         fontFamily:
+//           "'Gill Sans', 'Gill Sans MT', 'Seravek', 'Trebuchet MS', sans-serif",
+//         fontSize: 14,
+//         letterSpacing: "normal",
+//         padding: 10,
+//         fill: "#252525",
+//         stroke: "transparent"
+//       },
+//       title: {
+//         fontFamily:
+//           "'Gill Sans', 'Gill Sans MT', 'Seravek', 'Trebuchet MS', sans-serif",
+//         fontSize: 14,
+//         letterSpacing: "normal",
+//         padding: 5,
+//         fill: "#252525",
+//         stroke: "transparent"
+//       }
+//     }
+//   },
+//   line: {
+//     style: {
+//       data: {
+//         fill: "transparent",
+//         stroke: "#252525",
+//         strokeWidth: 2
+//       },
+//       labels: {
+//         fontFamily:
+//           "'Gill Sans', 'Gill Sans MT', 'Seravek', 'Trebuchet MS', sans-serif",
+//         fontSize: 14,
+//         letterSpacing: "normal",
+//         padding: 10,
+//         fill: "#252525",
+//         stroke: "transparent"
+//       }
+//     },
+//     width: 450,
+//     height: 300,
+//     padding: 50,
+//     colorScale: [
+//       "#252525",
+//       "#525252",
+//       "#737373",
+//       "#969696",
+//       "#bdbdbd",
+//       "#d9d9d9",
+//       "#f0f0f0"
+//     ]
+//   },
+//   pie: {
+//     style: {
+//       data: {
+//         padding: 10,
+//         stroke: "transparent",
+//         strokeWidth: 1
+//       },
+//       labels: {
+//         fontFamily:
+//           "'Gill Sans', 'Gill Sans MT', 'Seravek', 'Trebuchet MS', sans-serif",
+//         fontSize: 14,
+//         letterSpacing: "normal",
+//         padding: 20,
+//         fill: "#252525",
+//         stroke: "transparent"
+//       }
+//     },
+//     colorScale: [
+//       "#252525",
+//       "#525252",
+//       "#737373",
+//       "#969696",
+//       "#bdbdbd",
+//       "#d9d9d9",
+//       "#f0f0f0"
+//     ],
+//     width: 400,
+//     height: 400,
+//     padding: 50
+//   },
+//   scatter: {
+//     style: {
+//       data: {
+//         fill: "#252525",
+//         stroke: "transparent",
+//         strokeWidth: 0
+//       },
+//       labels: {
+//         fontFamily:
+//           "'Gill Sans', 'Gill Sans MT', 'Seravek', 'Trebuchet MS', sans-serif",
+//         fontSize: 14,
+//         letterSpacing: "normal",
+//         padding: 10,
+//         fill: "#252525",
+//         stroke: "transparent"
+//       }
+//     },
+//     width: 450,
+//     height: 300,
+//     padding: 50,
+//     colorScale: [
+//       "#252525",
+//       "#525252",
+//       "#737373",
+//       "#969696",
+//       "#bdbdbd",
+//       "#d9d9d9",
+//       "#f0f0f0"
+//     ]
+//   },
+//   stack: {
+//     colorScale: [
+//       "#252525",
+//       "#525252",
+//       "#737373",
+//       "#969696",
+//       "#bdbdbd",
+//       "#d9d9d9",
+//       "#f0f0f0"
+//     ],
+//     width: 450,
+//     height: 300,
+//     padding: 50
+//   },
+//   tooltip: {
+//     style: {
+//       fontFamily:
+//         "'Gill Sans', 'Gill Sans MT', 'Seravek', 'Trebuchet MS', sans-serif",
+//       fontSize: 14,
+//       letterSpacing: "normal",
+//       padding: 5,
+//       fill: "#252525",
+//       stroke: "transparent",
+//       pointerEvents: "none"
+//     },
+//     flyoutStyle: {
+//       stroke: "#252525",
+//       strokeWidth: 1,
+//       fill: "#f0f0f0",
+//       pointerEvents: "none"
+//     },
+//     cornerRadius: 5,
+//     pointerLength: 10
+//   },
+//   voronoi: {
+//     style: {
+//       data: {
+//         fill: "transparent",
+//         stroke: "transparent",
+//         strokeWidth: 0
+//       },
+//       labels: {
+//         fontFamily:
+//           "'Gill Sans', 'Gill Sans MT', 'Seravek', 'Trebuchet MS', sans-serif",
+//         fontSize: 14,
+//         letterSpacing: "normal",
+//         padding: 5,
+//         fill: "#252525",
+//         stroke: "transparent",
+//         pointerEvents: "none"
+//       },
+//       flyout: {
+//         stroke: "#252525",
+//         strokeWidth: 1,
+//         fill: "#f0f0f0",
+//         pointerEvents: "none"
+//       }
+//     },
+//     width: 450,
+//     height: 300,
+//     padding: 50,
+//     colorScale: [
+//       "#252525",
+//       "#525252",
+//       "#737373",
+//       "#969696",
+//       "#bdbdbd",
+//       "#d9d9d9",
+//       "#f0f0f0"
+//     ]
+//   }
+// };
 
 const wincTheme = {
   area: {
