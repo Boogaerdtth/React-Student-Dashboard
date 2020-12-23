@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from "react-router-dom"
-// import Evelyn from './students/Evelyn'
 
 function Nav() {
     return (

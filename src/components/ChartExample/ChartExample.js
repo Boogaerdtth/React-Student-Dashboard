@@ -50,7 +50,7 @@ import {
 //         textAnchor: "middle",
 //         fontFamily:
 //           "'Gill Sans', 'Gill Sans MT', 'Seravek', 'Trebuchet MS', sans-serif",
-//         fontSize: 14,
+//         fontSize: 4,
 //         letterSpacing: "normal",
 //         padding: 25,
 //         fill: "#252525",
@@ -69,9 +69,10 @@ import {
 //       tickLabels: {
 //         fontFamily:
 //           "'Gill Sans', 'Gill Sans MT', 'Seravek', 'Trebuchet MS', sans-serif",
-//         fontSize: 14,
+//         fontSize: 6,
 //         letterSpacing: "normal",
-//         padding: 10,
+//         padding: 15,
+//         angle: 90,
 //         fill: "#252525",
 //         stroke: "transparent"
 //       }
@@ -547,11 +548,22 @@ const wincTheme = {
         strokeLinecap: "round",
         strokeLinejoin: "round"
       },
+      // tickLabels: {
+      //   fontFamily:
+      //     "'Gill Sans', 'Gill Sans MT', 'Seravek', 'Trebuchet MS', sans-serif",
+      //   fontSize: 6,
+      //   letterSpacing: "normal",
+      //   padding: 15,
+      //   angle: 90,
+      //   fill: "#252525",
+      //   stroke: "transparent"
+      // },
       tickLabels: {
         fontFamily: "'Roboto', 'Helvetica Neue', Helvetica, sans-serif",
-        fontSize: 12,
+        fontSize: 10,
         letterSpacing: "normal",
-        padding: 8,
+        padding: 20,
+        angle: 65,
         fill: "#455A64",
         stroke: "transparent",
         strokeWidth: 0
@@ -909,10 +921,10 @@ let assignmentRatingAverage = [
   { assignment: "W1D3-2" },
   { assignment: "W1D3-4" },
   { assignment: "W1D3-5" },
-  { assignment: "W1D3 - Project - Guess the number" },
+  { assignment: "W1D3" },
   { assignment: "W1D4-1" },
-  { assignment: "W1D4 - Project - Kleurentoggle" },
-  { assignment: "W1D5 - Project - Galgje" },
+  { assignment: "W1D4" },
+  { assignment: "W1D5" },
   { assignment: "W2D1-1" },
   { assignment: "W2D1-2" },
   { assignment: "W2D2-1" },
@@ -924,7 +936,7 @@ let assignmentRatingAverage = [
   { assignment: "W2D4-1" },
   { assignment: "W2D4-2" },
   { assignment: "W2D4-3" },
-  { assignment: "W2D5 - Project - Filmzoeker" },
+  { assignment: "W2D5" },
   { assignment: "W3D1-1" },
   { assignment: "W3D1-2" },
   { assignment: "W3D1-3" },
@@ -938,7 +950,7 @@ let assignmentRatingAverage = [
   { assignment: "W3D3-4" },
   { assignment: "W3D4-1" },
   { assignment: "W3D4-2" },
-  { assignment: "W3D5 - Project - Todo-list" },
+  { assignment: "W3D5" },
   { assignment: "W4D2-1" },
   { assignment: "W4D2-2" },
   { assignment: "W4D2-3" },
@@ -948,12 +960,12 @@ let assignmentRatingAverage = [
   { assignment: "W4D3-3" },
   { assignment: "W4D3-4" },
   { assignment: "W4D3-5" },
-  { assignment: "W4D3 - Project - Next-level CSS" },
+  { assignment: "W4D3" },
   { assignment: "W5D4-1" },
-  { assignment: "W5D5 - Project - Lil_Playlist" },
+  { assignment: "W5D5" },
   { assignment: "W6D1-1" },
   { assignment: "W6D2-1" },
-  { assignment: "W6D2 - Project - Eindopdracht" },
+  { assignment: "W6D2" },
 
 ];
 
@@ -981,6 +993,7 @@ const chartExample = () => (
         <VictoryBar
           labelComponent={<VictoryTooltip />}
           data={assignmentRatingAverageWithLabels}
+          barWidth={3}
           x="assignment"
           y="difficultyRating"
           tickValues={[1, 2, 3, 4, 5]}
@@ -991,6 +1004,7 @@ const chartExample = () => (
         <VictoryBar
           labelComponent={<VictoryTooltip />}
           data={assignmentRatingAverageWithLabels}
+          barWidth={3}
           x="assignment"
           y="enjoymentRating"
           tickValues={[1, 2, 3, 4, 5]}
@@ -1000,8 +1014,6 @@ const chartExample = () => (
         />
       </VictoryGroup>
       <VictoryAxis
-        // tickValues specifies both the number of ticks and where
-        // they are placed on the axis
         tickValues={[1, 2, 3, 4, 5]}
         tickFormat={assignmentRatingAverageWithLabels.map(
           avg => avg.assignment
@@ -1030,8 +1042,6 @@ const chartExample = () => (
         y="enjoymentRating"
       />
       <VictoryAxis
-        // tickValues specifies both the number of ticks and where
-        // they are placed on the axis
         tickValues={[1, 2, 3, 4, 5]}
         tickFormat={assignmentRatingAverage.map(avg => avg.assignment)}
       />
