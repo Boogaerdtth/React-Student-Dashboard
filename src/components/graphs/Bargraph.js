@@ -13,7 +13,7 @@ function Bargraph(props) {
     const wincTheme = props.wincTheme.default
     const newStudentData = props.studentData.student;
     const assignmentData = newStudentData.map(x => x.assignments)
-    console.log(props.handleChange)
+    // console.log(props.handleChange)
 
     const flattenArray = assignmentData.flat()
     const uniqueAssignmentNames = assignmentData[0].map(x => x.name)
@@ -32,10 +32,20 @@ function Bargraph(props) {
     const assignmentsAverage = assignmentsTotal.map((current) => {
         return { name: current.name, difficultyRating: (current.difficultyRating / newStudentData.length), funRating: (current.funRating / newStudentData.length) }
     });
-    // ik moet 3 checkboxes maken zodat ik kan aanvinkne of ik alleen de diffuculty of alleen de funrating
-    // of beide wil showen.
-    // ik moet bovenstaande functie assignmentAverage ook individueel maken, zodat of de ene functie of de andere functie 
-    // moet worden uitgevoerd
+
+    // onderstaand moet alleen de difficultyrate uitvoeren!!
+    const assignmentsDifficultyAverage = assignmentsAverage.map(avg => ({
+        assignment: avg.name,
+        difficultyRating: avg.difficultyRating
+    }))
+
+    // onderstaand moet alleen de enjoymentrate uitvoeren!!
+    const assignmentsEnjoymentAverage = assignmentsAverage.map(avg => ({
+        assignment: avg.name,
+        enjoymentRating: avg.funRating
+    }))
+
+    // moet iknog de labels per optie ook opnieuw uitschrijven?
     const assignmentRatingAverage = assignmentsAverage.map(avg => ({
         assignment: avg.name,
         difficultyRating: avg.difficultyRating,
@@ -83,22 +93,21 @@ function Bargraph(props) {
                 <div className="radiobuttons">
                     <input
                         type="radio"
-                        name="bargraphdisplay"
+                        name="barRating"
                         value="difficult-and-enjoyment"
                         checked={props.barRating === "difficult-and-enjoyment"}
                         onChange={props.handleChange}
-                        defaultChecked
                     /> Difficulty-rating  +  Enjoyment-rating
                         <input
                         type="radio"
-                        name="bargraphdisplay"
+                        name="barRating"
                         value="difficult"
                         checked={props.barRating === "difficult"}
                         onChange={props.handleChange}
                     /> Difficulty-rating
                     <input
                         type="radio"
-                        name="bargraphdisplay"
+                        name="barRating"
                         value="enjoyment"
                         checked={props.barRating === "enjoyment"}
                         onChange={props.handleChange}
@@ -135,22 +144,21 @@ function Bargraph(props) {
             <div className="radiobuttons">
                 <input
                     type="radio"
-                    name="linegraphdisplay"
+                    name="lineRating"
                     value="difficult-and-enjoyment"
                     checked={props.lineRating === "difficult-and-enjoyment"}
                     onChange={props.handleChange}
-                    defaultChecked
                 /> Difficulty-rating + Enjoyment-rating
                     <input
                     type="radio"
-                    name="linegraphdisplay"
+                    name="lineRating"
                     value="difficult"
                     checked={props.lineRating === "difficult"}
                     onChange={props.handleChange}
                 /> Difficulty-rating
                     <input
                     type="radio"
-                    name="linegraphdisplay"
+                    name="lineRating"
                     value="enjoyment"
                     checked={props.lineRating === "enjoyment"}
                     onChange={props.handleChange}

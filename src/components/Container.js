@@ -24,11 +24,14 @@ const wincTheme = require('./graphs/WincTheme')
 const Container = () => {
     const [barRating, setBarRating] = useState("difficult-and-enjoyment")
     const [lineRating, setLineRating] = useState("difficult-and-enjoyment")
-    console.log(barRating)
+    // console.log(barRating)
     const handleChange = event => {
         const { name, value, type, checked } = event.target
         type === "checkbox" ? this.setState({ [name]: checked }) : this.setState({ [name]: value })
     }
+    // ik moet de waarddes van de chart nog veranderen ipv hard code => {props...}
+    // zeker nog de default waarde
+    // plus video's over useState kijken
     return (
         <main className="main">
             <Switch>
