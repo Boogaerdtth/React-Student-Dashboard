@@ -8,19 +8,19 @@ import {
     VictoryGroup
 } from "victory"
 
-const Evelyn = (props) => {
-    const evelynData = props.studentData.student[0];
-    const assignmentEvelyn = evelynData.assignments
+const Floris = (props) => {
+    const florisData = props.studentData.student[2];
+    const assignmentFloris = florisData.assignments
     const wincTheme = props.wincTheme.default
 
-    const assignmentEvelynLine = assignmentEvelyn.map(avg => ({
+    const assignmentFlorisLine = assignmentFloris.map(avg => ({
         assignment: avg.name,
         difficultyRating: avg.difficultyRating,
         enjoymentRating: avg.funRating
     }));
 
     // // Add label
-    const assignmentRatingEvelynWithLabels = assignmentEvelyn.map(person => ({
+    const assignmentRatingFlorisWithLabels = assignmentFloris.map(person => ({
         assignment: person.name,
         difficultyRating: person.difficultyRating,
         enjoymentRating: person.funRating,
@@ -35,22 +35,22 @@ const Evelyn = (props) => {
                 <VictoryGroup offset={20}>
                     <VictoryBar
                         labelComponent={<VictoryTooltip />}
-                        data={assignmentRatingEvelynWithLabels}
+                        data={assignmentRatingFlorisWithLabels}
                         x="assignment"
                         y="difficultyRating"
                         tickValues={[1, 2, 3, 4, 5]}
-                        tickFormat={assignmentRatingEvelynWithLabels.map(avg => avg.assignment)} />
+                        tickFormat={assignmentRatingFlorisWithLabels.map(avg => avg.assignment)} />
                     <VictoryBar
                         labelComponent={<VictoryTooltip />}
-                        data={assignmentRatingEvelynWithLabels}
+                        data={assignmentRatingFlorisWithLabels}
                         x="assignment"
                         y="enjoymentRating"
                         tickValues={[1, 2, 3, 4, 5]}
-                        tickFormat={assignmentRatingEvelynWithLabels.map(avg => avg.assignment)} />
+                        tickFormat={assignmentRatingFlorisWithLabels.map(avg => avg.assignment)} />
                 </VictoryGroup>
                 <VictoryAxis
                     tickValues={[1, 2, 3, 4, 5]}
-                    tickFormat={assignmentRatingEvelynWithLabels.map(avg => avg.assignment)} />
+                    tickFormat={assignmentRatingFlorisWithLabels.map(avg => avg.assignment)} />
                 <VictoryAxis dependentAxis />
             </VictoryChart >
 
@@ -60,7 +60,7 @@ const Evelyn = (props) => {
                         data: { stroke: "#c43a31" },
                         parent: { border: "1px solid #ccc" }
                     }}
-                    data={assignmentEvelynLine}
+                    data={assignmentFlorisLine}
                     x="assignment"
                     y="difficultyRating" />
                 <VictoryLine
@@ -68,16 +68,15 @@ const Evelyn = (props) => {
                         data: { stroke: "#ff00ff" },
                         parent: { border: "1px solid #ccc" }
                     }}
-                    data={assignmentEvelynLine}
+                    data={assignmentFlorisLine}
                     x="assignment"
                     y="enjoymentRating" />
                 <VictoryAxis
                     tickValues={[1, 2, 3, 4, 5]}
-                    tickFormat={assignmentEvelynLine.map(avg => avg.assignment)} />
+                    tickFormat={assignmentFlorisLine.map(avg => avg.assignment)} />
                 <VictoryAxis dependentAxis />
             </VictoryChart>
-
         </div>
     )
 }
-export default Evelyn
+export default Floris

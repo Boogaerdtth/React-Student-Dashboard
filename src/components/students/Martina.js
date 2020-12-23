@@ -8,19 +8,19 @@ import {
     VictoryGroup
 } from "victory"
 
-const Evelyn = (props) => {
-    const evelynData = props.studentData.student[0];
-    const assignmentEvelyn = evelynData.assignments
+const Martina = (props) => {
+    const martinaData = props.studentData.student[4];
+    const assignmentMartina = martinaData.assignments
     const wincTheme = props.wincTheme.default
 
-    const assignmentEvelynLine = assignmentEvelyn.map(avg => ({
+    const assignmentMartinaLine = assignmentMartina.map(avg => ({
         assignment: avg.name,
         difficultyRating: avg.difficultyRating,
         enjoymentRating: avg.funRating
     }));
 
     // // Add label
-    const assignmentRatingEvelynWithLabels = assignmentEvelyn.map(person => ({
+    const assignmentRatingMartinaWithLabels = assignmentMartina.map(person => ({
         assignment: person.name,
         difficultyRating: person.difficultyRating,
         enjoymentRating: person.funRating,
@@ -35,22 +35,22 @@ const Evelyn = (props) => {
                 <VictoryGroup offset={20}>
                     <VictoryBar
                         labelComponent={<VictoryTooltip />}
-                        data={assignmentRatingEvelynWithLabels}
+                        data={assignmentRatingMartinaWithLabels}
                         x="assignment"
                         y="difficultyRating"
                         tickValues={[1, 2, 3, 4, 5]}
-                        tickFormat={assignmentRatingEvelynWithLabels.map(avg => avg.assignment)} />
+                        tickFormat={assignmentRatingMartinaWithLabels.map(avg => avg.assignment)} />
                     <VictoryBar
                         labelComponent={<VictoryTooltip />}
-                        data={assignmentRatingEvelynWithLabels}
+                        data={assignmentRatingMartinaWithLabels}
                         x="assignment"
                         y="enjoymentRating"
                         tickValues={[1, 2, 3, 4, 5]}
-                        tickFormat={assignmentRatingEvelynWithLabels.map(avg => avg.assignment)} />
+                        tickFormat={assignmentRatingMartinaWithLabels.map(avg => avg.assignment)} />
                 </VictoryGroup>
                 <VictoryAxis
                     tickValues={[1, 2, 3, 4, 5]}
-                    tickFormat={assignmentRatingEvelynWithLabels.map(avg => avg.assignment)} />
+                    tickFormat={assignmentRatingMartinaWithLabels.map(avg => avg.assignment)} />
                 <VictoryAxis dependentAxis />
             </VictoryChart >
 
@@ -60,7 +60,7 @@ const Evelyn = (props) => {
                         data: { stroke: "#c43a31" },
                         parent: { border: "1px solid #ccc" }
                     }}
-                    data={assignmentEvelynLine}
+                    data={assignmentMartinaLine}
                     x="assignment"
                     y="difficultyRating" />
                 <VictoryLine
@@ -68,16 +68,15 @@ const Evelyn = (props) => {
                         data: { stroke: "#ff00ff" },
                         parent: { border: "1px solid #ccc" }
                     }}
-                    data={assignmentEvelynLine}
+                    data={assignmentMartinaLine}
                     x="assignment"
                     y="enjoymentRating" />
                 <VictoryAxis
                     tickValues={[1, 2, 3, 4, 5]}
-                    tickFormat={assignmentEvelynLine.map(avg => avg.assignment)} />
+                    tickFormat={assignmentMartinaLine.map(avg => avg.assignment)} />
                 <VictoryAxis dependentAxis />
             </VictoryChart>
-
         </div>
     )
 }
-export default Evelyn
+export default Martina

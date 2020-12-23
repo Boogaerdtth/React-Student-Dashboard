@@ -7,6 +7,14 @@ import Home from "./Home"
 
 import Evelyn from './students/Evelyn'
 import Aranka from './students/Aranka'
+import Floris from './students/Floris'
+import Hector from './students/Hector'
+import Martina from './students/Martina'
+import Maurits from './students/Maurits'
+import Rahima from './students/Rahima'
+import Sandra from './students/Sandra'
+import Wietske from './students/Wietske'
+import Storm from './students/Storm'
 
 const studentData = require('./Studentdata.json')
 const wincTheme = require('./graphs/WincTheme')
@@ -37,6 +45,46 @@ const Container = () => {
                 </Route>
                 <Route path="/students/aranka">
                     <Aranka
+                        studentData={studentData}
+                        wincTheme={wincTheme} />
+                </Route>
+                <Route path="/students/floris">
+                    <Floris
+                        studentData={studentData}
+                        wincTheme={wincTheme} />
+                </Route>
+                <Route path="/students/hector">
+                    <Hector
+                        studentData={studentData}
+                        wincTheme={wincTheme} />
+                </Route>
+                <Route path="/students/martina">
+                    <Martina
+                        studentData={studentData}
+                        wincTheme={wincTheme} />
+                </Route>
+                <Route path="/students/maurits">
+                    <Maurits
+                        studentData={studentData}
+                        wincTheme={wincTheme} />
+                </Route>
+                <Route path="/students/rahima">
+                    <Rahima
+                        studentData={studentData}
+                        wincTheme={wincTheme} />
+                </Route>
+                <Route path="/students/sandra">
+                    <Sandra
+                        studentData={studentData}
+                        wincTheme={wincTheme} />
+                </Route>
+                <Route path="/students/wietske">
+                    <Wietske
+                        studentData={studentData}
+                        wincTheme={wincTheme} />
+                </Route>
+                <Route path="/students/storm">
+                    <Storm
                         studentData={studentData}
                         wincTheme={wincTheme} />
                 </Route>

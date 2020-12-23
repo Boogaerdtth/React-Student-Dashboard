@@ -13,7 +13,7 @@ function Bargraph(props) {
     const wincTheme = props.wincTheme.default
     const newStudentData = props.studentData.student;
     const assignmentData = newStudentData.map(x => x.assignments)
-    // console.log(assignmentData)
+
     const flattenArray = assignmentData.flat()
     const uniqueAssignmentNames = assignmentData[0].map(x => x.name)
     let sortedAssignments = [];
