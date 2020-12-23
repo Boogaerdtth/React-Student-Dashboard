@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Switch, Route } from "react-router-dom"
 
 import ChartExample from "./ChartExample/ChartExample"
@@ -20,7 +20,15 @@ const studentData = require('./Studentdata.json')
 const wincTheme = require('./graphs/WincTheme')
 
 
+
 const Container = () => {
+    const [barRating, setBarRating] = useState("difficult-and-enjoyment")
+    const [lineRating, setLineRating] = useState("difficult-and-enjoyment")
+    console.log(barRating)
+    const handleChange = event => {
+        const { name, value, type, checked } = event.target
+        type === "checkbox" ? this.setState({ [name]: checked }) : this.setState({ [name]: value })
+    }
     return (
         <main className="main">
             <Switch>
@@ -31,6 +39,9 @@ const Container = () => {
                     <Bargraph
                         studentData={studentData}
                         wincTheme={wincTheme}
+                        handleChange={handleChange}
+                        barRating={barRating}
+                        lineRating={lineRating}
 
                     />
                 </Route>
