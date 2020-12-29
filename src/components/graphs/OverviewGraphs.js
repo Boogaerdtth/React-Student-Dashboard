@@ -9,15 +9,14 @@ import {
 } from "victory"
 
 
-function Bargraph(props) {
+function OverviewGraphs(props) {
     const wincTheme = props.wincTheme.default
     const newStudentData = props.studentData.student;
     const assignmentData = newStudentData.map(x => x.assignments)
-    console.log(props.barRating.name)
-
     const flattenArray = assignmentData.flat()
     const uniqueAssignmentNames = assignmentData[0].map(x => x.name)
     let sortedAssignments = [];
+
     uniqueAssignmentNames.forEach(assignment => {
         let groupedAssignments = flattenArray.filter(x => x.name === assignment)
         sortedAssignments.push(groupedAssignments)
@@ -33,8 +32,14 @@ function Bargraph(props) {
         return { name: current.name, difficultyRating: (current.difficultyRating / newStudentData.length), funRating: (current.funRating / newStudentData.length) }
     });
 
-    // onderstaand moet alleen de difficultyrate uitvoeren!!
+    // Onderstaand is alleen de difficultyrate!!
     const assignmentsDifficultyAverage = assignmentsAverage.map(avg => ({
+        assignment: avg.name,
+        difficultyRating: avg.difficultyRating,
+        enjoymentRating: 0,
+    }))
+    // add label
+    const assignmentsDifficultyAverageWithLabels = assignmentsAverage.map(avg => ({
         assignment: avg.name,
         difficultyRating: avg.difficultyRating,
         enjoymentRating: 0,
@@ -42,8 +47,15 @@ function Bargraph(props) {
             Difficulty-rating: ${avg.difficultyRating}`
     }))
 
-    // onderstaand moet alleen de enjoymentrate uitvoeren!!
+
+    // Onderstaand is alleen de enjoymentrate!!
     const assignmentsEnjoymentAverage = assignmentsAverage.map(avg => ({
+        assignment: avg.name,
+        difficultyRating: 0,
+        enjoymentRating: avg.funRating,
+    }))
+    // add label
+    const assignmentsEnjoymentAverageWithLabels = assignmentsAverage.map(avg => ({
         assignment: avg.name,
         difficultyRating: 0,
         enjoymentRating: avg.funRating,
@@ -51,13 +63,13 @@ function Bargraph(props) {
             Enjoyment-rating: ${avg.funRating}`
     }))
 
+    // Onderstaand is beide gegevens!!
     const assignmentRatingAverage = assignmentsAverage.map(avg => ({
         assignment: avg.name,
         difficultyRating: avg.difficultyRating,
         enjoymentRating: avg.funRating
     }));
-
-    // // Add label
+    // add label
     const assignmentRatingAverageWithLabels = assignmentRatingAverage.map(avg => ({
         assignment: avg.assignment,
         difficultyRating: avg.difficultyRating,
@@ -67,26 +79,26 @@ function Bargraph(props) {
             enjoymentRating: ${avg.enjoymentRating}`
     }))
 
-    // dat als de state wordt veranderd, dat er dan een andere const (bovenstaande)
-    // wordt uitgevoerd
 
-    // props.barRating moet de state zijn die doorgegeven moet worden aan de data van de grafiek
-
-
-    const displayAverageInGraph = () => {
+    const displayAverageInBarGraph = () => {
         if (props.barRating.name === 'difficult-and-enjoyment') {
             return assignmentRatingAverageWithLabels
-            // console.log(assignmentRatingAverageWithLabels)
         } else if (props.barRating.name === 'difficult') {
-            return assignmentsDifficultyAverage
-            // console.log(assignmentsDifficultyAverage)
+            return assignmentsDifficultyAverageWithLabels
         } else if (props.barRating.name === 'enjoyment') {
-            return assignmentsEnjoymentAverage
-            // console.log(assignmentsEnjoymentAverage)
+            return assignmentsEnjoymentAverageWithLabels
         }
     }
-    displayAverageInGraph()
 
+    const displayAverageInLineGraph = () => {
+        if (props.lineRating.name === 'difficult-and-enjoyment') {
+            return assignmentRatingAverage
+        } else if (props.lineRating.name === 'difficult') {
+            return assignmentsDifficultyAverage
+        } else if (props.lineRating.name === 'enjoyment') {
+            return assignmentsEnjoymentAverage
+        }
+    }
 
 
     return (
@@ -96,14 +108,14 @@ function Bargraph(props) {
                     <VictoryGroup offset={20}>
                         <VictoryBar
                             labelComponent={<VictoryTooltip />}
-                            data={displayAverageInGraph()}
+                            data={displayAverageInBarGraph()}
                             x="assignment"
                             y="difficultyRating"
                             tickValues={[1, 2, 3, 4, 5]}
                             tickFormat={assignmentsAverage.map(avg => avg.name)} />
                         <VictoryBar
                             labelComponent={<VictoryTooltip />}
-                            data={displayAverageInGraph()}
+                            data={displayAverageInBarGraph()}
                             x="assignment"
                             y="enjoymentRating"
                             tickValues={[1, 2, 3, 4, 5]}
@@ -149,7 +161,7 @@ function Bargraph(props) {
                             data: { stroke: "#c43a31" },
                             parent: { border: "1px solid #ccc" }
                         }}
-                        data={assignmentRatingAverage}
+                        data={displayAverageInLineGraph()}
                         x="assignment"
                         y="difficultyRating" />
                     <VictoryLine
@@ -157,12 +169,12 @@ function Bargraph(props) {
                             data: { stroke: "#ff00ff" },
                             parent: { border: "1px solid #ccc" }
                         }}
-                        data={assignmentRatingAverage}
+                        data={displayAverageInLineGraph()}
                         x="assignment"
                         y="enjoymentRating" />
                     <VictoryAxis
                         tickValues={[1, 2, 3, 4, 5]}
-                        tickFormat={assignmentRatingAverage.map(avg => avg.assignment)} />
+                        tickFormat={assignmentsAverage.map(avg => avg.name)} />
                     <VictoryAxis dependentAxis />
                 </VictoryChart>
 
@@ -174,21 +186,21 @@ function Bargraph(props) {
                     type="radio"
                     name="lineRating"
                     value="difficult-and-enjoyment"
-                    checked={props.lineRating === "difficult-and-enjoyment"}
+                    checked={props.lineRating.name === "difficult-and-enjoyment"}
                     onChange={props.handleChangeLineRating}
                 /> Difficulty-rating + Enjoyment-rating
                     <input
                     type="radio"
                     name="lineRating"
                     value="difficult"
-                    checked={props.lineRating === "difficult"}
+                    checked={props.lineRating.name === "difficult"}
                     onChange={props.handleChangeLineRating}
                 /> Difficulty-rating
                     <input
                     type="radio"
                     name="lineRating"
                     value="enjoyment"
-                    checked={props.lineRating === "enjoyment"}
+                    checked={props.lineRating.name === "enjoyment"}
                     onChange={props.handleChangeLineRating}
                 /> Enjoyment-rating
                 </div>
@@ -197,4 +209,4 @@ function Bargraph(props) {
         </div>
     )
 }
-export default Bargraph
+export default OverviewGraphs

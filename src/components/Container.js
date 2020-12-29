@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { Switch, Route } from "react-router-dom"
 
-import ChartExample from "./ChartExample/ChartExample"
-import Bargraph from './graphs/Bargraph'
+// import ChartExample from "./ChartExample/ChartExample"
+import OverviewGraphs from './graphs/OverviewGraphs'
 import Home from "./Home"
 
 import Evelyn from './students/Evelyn'
@@ -24,48 +24,30 @@ const wincTheme = require('./graphs/WincTheme')
 const Container = () => {
     const [barRating, setBarRating] = useState({ name: "difficult-and-enjoyment" })
     const [lineRating, setLineRating] = useState({ name: "difficult-and-enjoyment" })
-    // console.log(barRating)
 
     const handleChangeBarRating = e => {
-        const { name, value } = e.target
-        // setBarRating(prevState => ({
-        //     ...prevState, [name]: value
-        // }))
+        const { value } = e.target
         setBarRating({
             name: value
         })
     }
     const handleChangeLineRating = e => {
-        const { name, value } = e.target
-        setLineRating(prevState => ({
-            ...prevState, [name]: value
-        }))
+        const { value } = e.target
+        setLineRating({
+            name: value
+        })
     }
-    // handleChange = e => {
-    //     this.setState({
-    //         [e.target.name]: e.target.value
-    //     })
-    // }
 
-    // const handleChange = event => {
-    //     const { name, value, type, checked } = event.target
-    //     type === "checkbox" ? this.setState({ [name]: checked }) : this.setState({ [name]: value })
-    // }
-
-    // ik moet de waarddes van de chart nog veranderen ipv hard code => {props...}
-    // zeker nog de default waarde
-    // plus video's over useState kijken
     return (
         <main className="main">
             <Switch>
-                <Route path="/chartexample">
+                {/* <Route path="/chartexample">
                     <ChartExample />
-                </Route>
-                <Route path="/bargraph">
-                    <Bargraph
+                </Route> */}
+                <Route path="/OverviewGraphs">
+                    <OverviewGraphs
                         studentData={studentData}
                         wincTheme={wincTheme}
-                        // handleChange={handleChange}
                         barRating={barRating}
                         lineRating={lineRating}
                         handleChangeBarRating={handleChangeBarRating}

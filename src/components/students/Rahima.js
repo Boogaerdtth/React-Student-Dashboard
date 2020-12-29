@@ -19,7 +19,7 @@ const Rahima = (props) => {
         enjoymentRating: avg.funRating
     }));
 
-    // // Add label
+    // Add label
     const assignmentRatingRahimaWithLabels = assignmentRahima.map(person => ({
         assignment: person.name,
         difficultyRating: person.difficultyRating,
@@ -31,6 +31,8 @@ const Rahima = (props) => {
 
     return (
         <div>
+            <h1>Rahima Banu</h1>
+
             <VictoryChart domainPadding={15} theme={wincTheme}>
                 <VictoryGroup offset={20}>
                     <VictoryBar

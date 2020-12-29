@@ -19,7 +19,7 @@ const Storm = (props) => {
         enjoymentRating: avg.funRating
     }));
 
-    // // Add label
+    // Add label
     const assignmentRatingStormWithLabels = assignmentStorm.map(person => ({
         assignment: person.name,
         difficultyRating: person.difficultyRating,
@@ -31,6 +31,8 @@ const Storm = (props) => {
 
     return (
         <div>
+            <h1>Storm Timmermans</h1>
+
             <VictoryChart domainPadding={15} theme={wincTheme}>
                 <VictoryGroup offset={20}>
                     <VictoryBar

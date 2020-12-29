@@ -1,5 +1,9 @@
+/* *{
+    background: #4f8bc9;
+
+} */
 .main {
-    background-color: lightgray;
+    background-color: #fff;
 }
 
 nav{
@@ -7,8 +11,11 @@ nav{
     justify-content: space-around;
     align-items: center;
     min-height: 10vh;
+    /* background-color: #fff; */
     background: rgb(73,79,82);
     color:white;
+    font-size:30px;
+    font-weight: bold;
 }
 .nav-links{
     width:50%;
@@ -23,6 +30,8 @@ nav{
     justify-content: space-around;
     align-items: center;
     min-height: 10vh;
+    /* background-color: #fff; */
+
     background: rgb(73,79,82);
     color:white;
     list-style: none;
@@ -38,6 +47,14 @@ a:visited{
     display:flex;
     justify-content: space-evenly;
     align-items: center;
-
-
+}
+.homepage{
+    background: rgb(73,79,82);
+    color:#fff;
+    font-size:30px;
+}
+h1{
+    background: rgb(73,79,82);
+    color:#fff;
+    font-size:40px;
 }

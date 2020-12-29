@@ -19,7 +19,7 @@ const Maurits = (props) => {
         enjoymentRating: avg.funRating
     }));
 
-    // // Add label
+    // Add label
     const assignmentRatingMauritsWithLabels = assignmentMaurits.map(person => ({
         assignment: person.name,
         difficultyRating: person.difficultyRating,
@@ -31,6 +31,8 @@ const Maurits = (props) => {
 
     return (
         <div>
+            <h1>Maurits van Vliet</h1>
+
             <VictoryChart domainPadding={15} theme={wincTheme}>
                 <VictoryGroup offset={20}>
                     <VictoryBar

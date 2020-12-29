@@ -19,7 +19,7 @@ const Sandra = (props) => {
         enjoymentRating: avg.funRating
     }));
 
-    // // Add label
+    // Add label
     const assignmentRatingSandraWithLabels = assignmentSandra.map(person => ({
         assignment: person.name,
         difficultyRating: person.difficultyRating,
@@ -31,6 +31,8 @@ const Sandra = (props) => {
 
     return (
         <div>
+            <h1>Sandra Huisman</h1>
+
             <VictoryChart domainPadding={15} theme={wincTheme}>
                 <VictoryGroup offset={20}>
                     <VictoryBar
