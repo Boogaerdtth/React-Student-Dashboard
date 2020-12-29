@@ -37,20 +37,18 @@ function Bargraph(props) {
     const assignmentsDifficultyAverage = assignmentsAverage.map(avg => ({
         assignment: avg.name,
         difficultyRating: avg.difficultyRating,
-        enjoymentRating: '',
+        enjoymentRating: 0,
         label: `Opdracht ${avg.name}, 
-            difficultyRating: ${avg.difficultyRating},  
-            enjoymentRating: ${avg.funRating}`
+            Difficulty-rating: ${avg.difficultyRating}`
     }))
 
     // onderstaand moet alleen de enjoymentrate uitvoeren!!
     const assignmentsEnjoymentAverage = assignmentsAverage.map(avg => ({
         assignment: avg.name,
-        difficultyRating: '',
+        difficultyRating: 0,
         enjoymentRating: avg.funRating,
-        label: `Opdracht ${avg.name}, 
-            difficultyRating: ${avg.difficultyRating},  
-            enjoymentRating: ${avg.funRating}`
+        label: `Opdracht ${avg.name},  
+            Enjoyment-rating: ${avg.funRating}`
     }))
 
     const assignmentRatingAverage = assignmentsAverage.map(avg => ({

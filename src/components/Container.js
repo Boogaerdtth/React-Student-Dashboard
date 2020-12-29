@@ -22,8 +22,8 @@ const wincTheme = require('./graphs/WincTheme')
 
 
 const Container = () => {
-    const [barRating, setBarRating] = useState({ name: "enjoyment" })
-    const [lineRating, setLineRating] = useState("difficult-and-enjoyment")
+    const [barRating, setBarRating] = useState({ name: "difficult-and-enjoyment" })
+    const [lineRating, setLineRating] = useState({ name: "difficult-and-enjoyment" })
     // console.log(barRating)
 
     const handleChangeBarRating = e => {
