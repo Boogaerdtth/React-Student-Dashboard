@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { Switch, Route } from "react-router-dom"
 
-// import ChartExample from "./ChartExample/ChartExample"
 import OverviewGraphs from './graphs/OverviewGraphs'
 import Home from "./Home"
 
@@ -41,9 +40,6 @@ const Container = () => {
     return (
         <main className="main">
             <Switch>
-                {/* <Route path="/chartexample">
-                    <ChartExample />
-                </Route> */}
                 <Route path="/OverviewGraphs">
                     <OverviewGraphs
                         studentData={studentData}

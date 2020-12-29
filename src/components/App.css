@@ -1,17 +1,8 @@
-/* *{
-    background: #4f8bc9;
-
-} */
-.main {
-    background-color: #fff;
-}
-
 nav{
     display:flex;
     justify-content: space-around;
     align-items: center;
     min-height: 10vh;
-    /* background-color: #fff; */
     background: rgb(73,79,82);
     color:white;
     font-size:30px;
@@ -23,20 +14,17 @@ nav{
     justify-content: space-around;
     align-items: center;
     list-style: none;
-     
 }
 .student-links{
     display:flex;
     justify-content: space-around;
     align-items: center;
     min-height: 10vh;
-    /* background-color: #fff; */
-
     background: rgb(73,79,82);
     color:white;
     list-style: none;
-
 }
+
 a{
     color:white;
 }
