@@ -37,37 +37,27 @@ function Bargraph(props) {
     const assignmentsDifficultyAverage = assignmentsAverage.map(avg => ({
         assignment: avg.name,
         difficultyRating: avg.difficultyRating,
-        label: `Opdracht ${avg.assignment}, 
+        enjoymentRating: '',
+        label: `Opdracht ${avg.name}, 
             difficultyRating: ${avg.difficultyRating},  
-            enjoymentRating: ${avg.enjoymentRating}`
+            enjoymentRating: ${avg.funRating}`
     }))
 
     // onderstaand moet alleen de enjoymentrate uitvoeren!!
     const assignmentsEnjoymentAverage = assignmentsAverage.map(avg => ({
         assignment: avg.name,
+        difficultyRating: '',
         enjoymentRating: avg.funRating,
-        label: `Opdracht ${avg.assignment}, 
+        label: `Opdracht ${avg.name}, 
             difficultyRating: ${avg.difficultyRating},  
-            enjoymentRating: ${avg.enjoymentRating}`
+            enjoymentRating: ${avg.funRating}`
     }))
 
-    // moet iknog de labels per optie ook opnieuw uitschrijven?
     const assignmentRatingAverage = assignmentsAverage.map(avg => ({
         assignment: avg.name,
         difficultyRating: avg.difficultyRating,
         enjoymentRating: avg.funRating
     }));
-    // ik moet meerdere dingen doen: ik meot zorgen dat als de radiobuttons worden geklikt, dat dan de state 
-    // wordt veranderd. maar ook dat als de state wordt veranderd, dat er dan een andere const (bovenstaande)
-    // wordt uitgevoerd
-    // if (radio){
-    //   voer deze functie ut
-    //} else if (andere radio){
-    // voer andere functie uit
-    //} else if (3e radio) {
-    // voer laatste functie uit   
-    // }
-    // props.barrating moet de state zijn die doorgegeven moet worden aan de data van de grafiek
 
     // // Add label
     const assignmentRatingAverageWithLabels = assignmentRatingAverage.map(avg => ({
@@ -79,20 +69,27 @@ function Bargraph(props) {
             enjoymentRating: ${avg.enjoymentRating}`
     }))
 
+    // dat als de state wordt veranderd, dat er dan een andere const (bovenstaande)
+    // wordt uitgevoerd
+
+    // props.barRating moet de state zijn die doorgegeven moet worden aan de data van de grafiek
+
+
     const displayAverageInGraph = () => {
-        if (props.barRating === 'difficult and enjoyment') {
-            assignmentRatingAverageWithLabels()
-            console.log(assignmentRatingAverageWithLabels)
-        } else if (props.barRating === 'difficult') {
-            assignmentsDifficultyAverage()
-            console.log(assignmentsDifficultyAverage)
-
-        } else if (props.barRating === 'enjoyment') {
-            assignmentsEnjoymentAverage()
-            console.log(assignmentsEnjoymentAverage)
-
+        if (props.barRating.name === 'difficult-and-enjoyment') {
+            return assignmentRatingAverageWithLabels
+            // console.log(assignmentRatingAverageWithLabels)
+        } else if (props.barRating.name === 'difficult') {
+            return assignmentsDifficultyAverage
+            // console.log(assignmentsDifficultyAverage)
+        } else if (props.barRating.name === 'enjoyment') {
+            return assignmentsEnjoymentAverage
+            // console.log(assignmentsEnjoymentAverage)
         }
     }
+    displayAverageInGraph()
+
+
 
     return (
         <div>
@@ -101,22 +98,22 @@ function Bargraph(props) {
                     <VictoryGroup offset={20}>
                         <VictoryBar
                             labelComponent={<VictoryTooltip />}
-                            data={assignmentRatingAverageWithLabels}
+                            data={displayAverageInGraph()}
                             x="assignment"
                             y="difficultyRating"
                             tickValues={[1, 2, 3, 4, 5]}
-                            tickFormat={assignmentRatingAverageWithLabels.map(avg => avg.assignment)} />
+                            tickFormat={assignmentsAverage.map(avg => avg.name)} />
                         <VictoryBar
                             labelComponent={<VictoryTooltip />}
-                            data={assignmentRatingAverageWithLabels}
+                            data={displayAverageInGraph()}
                             x="assignment"
                             y="enjoymentRating"
                             tickValues={[1, 2, 3, 4, 5]}
-                            tickFormat={assignmentRatingAverageWithLabels.map(avg => avg.assignment)} />
+                            tickFormat={assignmentsAverage.map(avg => avg.name)} />
                     </VictoryGroup>
                     <VictoryAxis
                         tickValues={[1, 2, 3, 4, 5]}
-                        tickFormat={assignmentRatingAverageWithLabels.map(avg => avg.assignment)} />
+                        tickFormat={assignmentsAverage.map(avg => avg.name)} />
                     <VictoryAxis dependentAxis />
                 </VictoryChart >
 
