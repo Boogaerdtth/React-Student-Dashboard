@@ -22,15 +22,18 @@ const wincTheme = require('./graphs/WincTheme')
 
 
 const Container = () => {
-    const [barRating, setBarRating] = useState("difficult-and-enjoyment")
+    const [barRating, setBarRating] = useState({ name: "enjoyment" })
     const [lineRating, setLineRating] = useState("difficult-and-enjoyment")
     // console.log(barRating)
 
     const handleChangeBarRating = e => {
         const { name, value } = e.target
-        setBarRating(prevState => ({
-            ...prevState, [name]: value
-        }))
+        // setBarRating(prevState => ({
+        //     ...prevState, [name]: value
+        // }))
+        setBarRating({
+            name: value
+        })
     }
     const handleChangeLineRating = e => {
         const { name, value } = e.target
@@ -38,6 +41,11 @@ const Container = () => {
             ...prevState, [name]: value
         }))
     }
+    // handleChange = e => {
+    //     this.setState({
+    //         [e.target.name]: e.target.value
+    //     })
+    // }
 
     // const handleChange = event => {
     //     const { name, value, type, checked } = event.target

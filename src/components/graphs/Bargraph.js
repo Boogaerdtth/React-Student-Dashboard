@@ -13,7 +13,7 @@ function Bargraph(props) {
     const wincTheme = props.wincTheme.default
     const newStudentData = props.studentData.student;
     const assignmentData = newStudentData.map(x => x.assignments)
-    // console.log(props)
+    console.log(props.barRating.name)
 
     const flattenArray = assignmentData.flat()
     const uniqueAssignmentNames = assignmentData[0].map(x => x.name)
@@ -82,10 +82,15 @@ function Bargraph(props) {
     const displayAverageInGraph = () => {
         if (props.barRating === 'difficult and enjoyment') {
             assignmentRatingAverageWithLabels()
+            console.log(assignmentRatingAverageWithLabels)
         } else if (props.barRating === 'difficult') {
             assignmentsDifficultyAverage()
+            console.log(assignmentsDifficultyAverage)
+
         } else if (props.barRating === 'enjoyment') {
             assignmentsEnjoymentAverage()
+            console.log(assignmentsEnjoymentAverage)
+
         }
     }
 
@@ -120,23 +125,23 @@ function Bargraph(props) {
                 <div className="radiobuttons">
                     <input
                         type="radio"
-                        name="barRating"
+                        name='barRating'
                         value="difficult-and-enjoyment"
-                        // checked={props.barRating === "difficult-and-enjoyment"}
+                        checked={props.barRating.name === "difficult-and-enjoyment"}
                         onChange={props.handleChangeBarRating}
                     /> Difficulty-rating  +  Enjoyment-rating
                         <input
                         type="radio"
-                        name="barRating"
+                        name='barRating'
                         value="difficult"
-                        // checked={props.barRating === "difficult"}
+                        checked={props.barRating.name === "difficult"}
                         onChange={props.handleChangeBarRating}
                     /> Difficulty-rating
                     <input
                         type="radio"
-                        name="barRating"
+                        name='barRating'
                         value="enjoyment"
-                        // checked={props.barRating === "enjoyment"}
+                        checked={props.barRating.name === "enjoyment"}
                         onChange={props.handleChangeBarRating}
                     /> Enjoyment-rating
                 </div>
