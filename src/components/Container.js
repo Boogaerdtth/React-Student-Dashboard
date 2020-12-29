@@ -25,10 +25,25 @@ const Container = () => {
     const [barRating, setBarRating] = useState("difficult-and-enjoyment")
     const [lineRating, setLineRating] = useState("difficult-and-enjoyment")
     // console.log(barRating)
-    const handleChange = event => {
-        const { name, value, type, checked } = event.target
-        type === "checkbox" ? this.setState({ [name]: checked }) : this.setState({ [name]: value })
+
+    const handleChangeBarRating = e => {
+        const { name, value } = e.target
+        setBarRating(prevState => ({
+            ...prevState, [name]: value
+        }))
     }
+    const handleChangeLineRating = e => {
+        const { name, value } = e.target
+        setLineRating(prevState => ({
+            ...prevState, [name]: value
+        }))
+    }
+
+    // const handleChange = event => {
+    //     const { name, value, type, checked } = event.target
+    //     type === "checkbox" ? this.setState({ [name]: checked }) : this.setState({ [name]: value })
+    // }
+
     // ik moet de waarddes van de chart nog veranderen ipv hard code => {props...}
     // zeker nog de default waarde
     // plus video's over useState kijken
@@ -42,9 +57,11 @@ const Container = () => {
                     <Bargraph
                         studentData={studentData}
                         wincTheme={wincTheme}
-                        handleChange={handleChange}
+                        // handleChange={handleChange}
                         barRating={barRating}
                         lineRating={lineRating}
+                        handleChangeBarRating={handleChangeBarRating}
+                        handleChangeLineRating={handleChangeLineRating}
 
                     />
                 </Route>

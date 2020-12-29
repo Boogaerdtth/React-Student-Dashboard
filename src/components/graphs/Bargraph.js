@@ -13,7 +13,7 @@ function Bargraph(props) {
     const wincTheme = props.wincTheme.default
     const newStudentData = props.studentData.student;
     const assignmentData = newStudentData.map(x => x.assignments)
-    // console.log(props.handleChange)
+    // console.log(props)
 
     const flattenArray = assignmentData.flat()
     const uniqueAssignmentNames = assignmentData[0].map(x => x.name)
@@ -36,13 +36,19 @@ function Bargraph(props) {
     // onderstaand moet alleen de difficultyrate uitvoeren!!
     const assignmentsDifficultyAverage = assignmentsAverage.map(avg => ({
         assignment: avg.name,
-        difficultyRating: avg.difficultyRating
+        difficultyRating: avg.difficultyRating,
+        label: `Opdracht ${avg.assignment}, 
+            difficultyRating: ${avg.difficultyRating},  
+            enjoymentRating: ${avg.enjoymentRating}`
     }))
 
     // onderstaand moet alleen de enjoymentrate uitvoeren!!
     const assignmentsEnjoymentAverage = assignmentsAverage.map(avg => ({
         assignment: avg.name,
-        enjoymentRating: avg.funRating
+        enjoymentRating: avg.funRating,
+        label: `Opdracht ${avg.assignment}, 
+            difficultyRating: ${avg.difficultyRating},  
+            enjoymentRating: ${avg.enjoymentRating}`
     }))
 
     // moet iknog de labels per optie ook opnieuw uitschrijven?
@@ -51,6 +57,17 @@ function Bargraph(props) {
         difficultyRating: avg.difficultyRating,
         enjoymentRating: avg.funRating
     }));
+    // ik moet meerdere dingen doen: ik meot zorgen dat als de radiobuttons worden geklikt, dat dan de state 
+    // wordt veranderd. maar ook dat als de state wordt veranderd, dat er dan een andere const (bovenstaande)
+    // wordt uitgevoerd
+    // if (radio){
+    //   voer deze functie ut
+    //} else if (andere radio){
+    // voer andere functie uit
+    //} else if (3e radio) {
+    // voer laatste functie uit   
+    // }
+    // props.barrating moet de state zijn die doorgegeven moet worden aan de data van de grafiek
 
     // // Add label
     const assignmentRatingAverageWithLabels = assignmentRatingAverage.map(avg => ({
@@ -61,6 +78,16 @@ function Bargraph(props) {
             difficultyRating: ${avg.difficultyRating},  
             enjoymentRating: ${avg.enjoymentRating}`
     }))
+
+    const displayAverageInGraph = () => {
+        if (props.barRating === 'difficult and enjoyment') {
+            assignmentRatingAverageWithLabels()
+        } else if (props.barRating === 'difficult') {
+            assignmentsDifficultyAverage()
+        } else if (props.barRating === 'enjoyment') {
+            assignmentsEnjoymentAverage()
+        }
+    }
 
     return (
         <div>
@@ -95,25 +122,26 @@ function Bargraph(props) {
                         type="radio"
                         name="barRating"
                         value="difficult-and-enjoyment"
-                        checked={props.barRating === "difficult-and-enjoyment"}
-                        onChange={props.handleChange}
+                        // checked={props.barRating === "difficult-and-enjoyment"}
+                        onChange={props.handleChangeBarRating}
                     /> Difficulty-rating  +  Enjoyment-rating
                         <input
                         type="radio"
                         name="barRating"
                         value="difficult"
-                        checked={props.barRating === "difficult"}
-                        onChange={props.handleChange}
+                        // checked={props.barRating === "difficult"}
+                        onChange={props.handleChangeBarRating}
                     /> Difficulty-rating
                     <input
                         type="radio"
                         name="barRating"
                         value="enjoyment"
-                        checked={props.barRating === "enjoyment"}
-                        onChange={props.handleChange}
+                        // checked={props.barRating === "enjoyment"}
+                        onChange={props.handleChangeBarRating}
                     /> Enjoyment-rating
                 </div>
                 <hr />
+
 
                 <VictoryChart domainPadding={15} theme={wincTheme}>
                     <VictoryLine
@@ -147,21 +175,21 @@ function Bargraph(props) {
                     name="lineRating"
                     value="difficult-and-enjoyment"
                     checked={props.lineRating === "difficult-and-enjoyment"}
-                    onChange={props.handleChange}
+                    onChange={props.handleChangeLineRating}
                 /> Difficulty-rating + Enjoyment-rating
                     <input
                     type="radio"
                     name="lineRating"
                     value="difficult"
                     checked={props.lineRating === "difficult"}
-                    onChange={props.handleChange}
+                    onChange={props.handleChangeLineRating}
                 /> Difficulty-rating
                     <input
                     type="radio"
                     name="lineRating"
                     value="enjoyment"
                     checked={props.lineRating === "enjoyment"}
-                    onChange={props.handleChange}
+                    onChange={props.handleChangeLineRating}
                 /> Enjoyment-rating
                 </div>
             <hr />
