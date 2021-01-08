@@ -36,13 +36,12 @@ const allStudents = (props) => {
     // console.log(displaySingleStudent())
 
     // hoe kan ik elke index van het object oproepen ipv 10 if statements
-    const displaySingleStudent2 = () => {
-        if (props.eachStudentData.name === props.studentData.student.name) {
-            console.log(findIndex)
+    // const displaySingleStudent2 = () => {
+    //     if (props.eachStudentData.name === props.studentData.student.name) {
 
-            return props.studentData.student
-        }
-    }
+    //         return props.studentData.student
+    //     }
+    // }
     // console.log(displaySingleStudent2())
 
     const assignmentStudents = displaySingleStudent().assignments
