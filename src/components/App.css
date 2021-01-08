@@ -8,14 +8,15 @@ nav{
     font-size:30px;
     font-weight: bold;
 }
-.nav-links{
+.nav-links {
     width:50%;
     display: flex;
     justify-content: space-around;
     align-items: center;
     list-style: none;
+
 }
-.student-links{
+.radiobuttons{
     display:flex;
     justify-content: space-around;
     align-items: center;
@@ -24,17 +25,20 @@ nav{
     color:white;
     list-style: none;
 }
-
 a{
     color:white;
 }
 a:visited{
     color:white;
 }
-.radiobuttons{
+.radiobuttons-gemiddelde{
     display:flex;
     justify-content: space-evenly;
     align-items: center;
+    min-height: 10vh;
+    background: rgb(73,79,82);
+    color:white;
+    list-style: none;
 }
 .homepage{
     background: rgb(73,79,82);
@@ -45,4 +49,11 @@ h1{
     background: rgb(73,79,82);
     color:#fff;
     font-size:40px;
+    margin-top:0;
+    padding-left:20px;
+}
+.li{
+    padding: 5px;
+    padding-left:0;
+    margin-right:5px;
 }

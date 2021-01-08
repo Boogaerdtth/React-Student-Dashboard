@@ -32,13 +32,13 @@ function OverviewGraphs(props) {
         return { name: current.name, difficultyRating: (current.difficultyRating / newStudentData.length), funRating: (current.funRating / newStudentData.length) }
     });
 
-    // Onderstaand is alleen de difficultyrate!!
+    // Only difficultyrate
     const assignmentsDifficultyAverage = assignmentsAverage.map(avg => ({
         assignment: avg.name,
         difficultyRating: avg.difficultyRating,
         enjoymentRating: 0,
     }))
-    // add label
+    // Add label
     const assignmentsDifficultyAverageWithLabels = assignmentsAverage.map(avg => ({
         assignment: avg.name,
         difficultyRating: avg.difficultyRating,
@@ -48,13 +48,13 @@ function OverviewGraphs(props) {
     }))
 
 
-    // Onderstaand is alleen de enjoymentrate!!
+    // Only enjoymentrate
     const assignmentsEnjoymentAverage = assignmentsAverage.map(avg => ({
         assignment: avg.name,
         difficultyRating: 0,
         enjoymentRating: avg.funRating,
     }))
-    // add label
+    // Add label
     const assignmentsEnjoymentAverageWithLabels = assignmentsAverage.map(avg => ({
         assignment: avg.name,
         difficultyRating: 0,
@@ -63,13 +63,13 @@ function OverviewGraphs(props) {
             Enjoyment-rating: ${avg.funRating}`
     }))
 
-    // Onderstaand is beide gegevens!!
+    // Both difficultyrate + enjoymentrate
     const assignmentRatingAverage = assignmentsAverage.map(avg => ({
         assignment: avg.name,
         difficultyRating: avg.difficultyRating,
         enjoymentRating: avg.funRating
     }));
-    // add label
+    // Add label
     const assignmentRatingAverageWithLabels = assignmentRatingAverage.map(avg => ({
         assignment: avg.assignment,
         difficultyRating: avg.difficultyRating,
@@ -100,9 +100,32 @@ function OverviewGraphs(props) {
         }
     }
 
-
     return (
         <div>
+            <div className="radiobuttons-gemiddelde">
+                <input
+                    type="radio"
+                    name='barRating'
+                    value="difficult-and-enjoyment"
+                    checked={props.barRating.name === "difficult-and-enjoyment"}
+                    onChange={props.handleChangeBarRating}
+                /> Moeilijkheidsgraad  +  Leukheidsgraad
+                        <input
+                    type="radio"
+                    name='barRating'
+                    value="difficult"
+                    checked={props.barRating.name === "difficult"}
+                    onChange={props.handleChangeBarRating}
+                /> Moeilijkheidsgraad
+                    <input
+                    type="radio"
+                    name='barRating'
+                    value="enjoyment"
+                    checked={props.barRating.name === "enjoyment"}
+                    onChange={props.handleChangeBarRating}
+                /> Leukheidsgraad
+                </div>
+            <hr />
             <>
                 <VictoryChart domainPadding={15} theme={wincTheme}>
                     <VictoryGroup offset={20}>
@@ -128,29 +151,29 @@ function OverviewGraphs(props) {
                 </VictoryChart >
 
                 <br />
-
+                <br />
                 <div className="radiobuttons">
                     <input
                         type="radio"
-                        name='barRating'
+                        name="lineRating"
                         value="difficult-and-enjoyment"
-                        checked={props.barRating.name === "difficult-and-enjoyment"}
-                        onChange={props.handleChangeBarRating}
-                    /> Difficulty-rating  +  Enjoyment-rating
-                        <input
-                        type="radio"
-                        name='barRating'
-                        value="difficult"
-                        checked={props.barRating.name === "difficult"}
-                        onChange={props.handleChangeBarRating}
-                    /> Difficulty-rating
+                        checked={props.lineRating.name === "difficult-and-enjoyment"}
+                        onChange={props.handleChangeLineRating}
+                    /> Moeilijkheidsgraad + Leukheidsgraad
                     <input
                         type="radio"
-                        name='barRating'
+                        name="lineRating"
+                        value="difficult"
+                        checked={props.lineRating.name === "difficult"}
+                        onChange={props.handleChangeLineRating}
+                    /> Moeilijkheidsgraad
+                    <input
+                        type="radio"
+                        name="lineRating"
                         value="enjoyment"
-                        checked={props.barRating.name === "enjoyment"}
-                        onChange={props.handleChangeBarRating}
-                    /> Enjoyment-rating
+                        checked={props.lineRating.name === "enjoyment"}
+                        onChange={props.handleChangeLineRating}
+                    /> Leukheidsgraad
                 </div>
                 <hr />
 
@@ -177,34 +200,7 @@ function OverviewGraphs(props) {
                         tickFormat={assignmentsAverage.map(avg => avg.name)} />
                     <VictoryAxis dependentAxis />
                 </VictoryChart>
-
-
             </>
-            <br />
-            <div className="radiobuttons">
-                <input
-                    type="radio"
-                    name="lineRating"
-                    value="difficult-and-enjoyment"
-                    checked={props.lineRating.name === "difficult-and-enjoyment"}
-                    onChange={props.handleChangeLineRating}
-                /> Difficulty-rating + Enjoyment-rating
-                    <input
-                    type="radio"
-                    name="lineRating"
-                    value="difficult"
-                    checked={props.lineRating.name === "difficult"}
-                    onChange={props.handleChangeLineRating}
-                /> Difficulty-rating
-                    <input
-                    type="radio"
-                    name="lineRating"
-                    value="enjoyment"
-                    checked={props.lineRating.name === "enjoyment"}
-                    onChange={props.handleChangeLineRating}
-                /> Enjoyment-rating
-                </div>
-            <hr />
             <hr />
         </div>
     )
