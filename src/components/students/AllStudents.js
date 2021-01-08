@@ -10,43 +10,14 @@ import {
 
 const allStudents = (props) => {
     const displaySingleStudent = () => {
-        if (props.eachStudentData.name === 'Evelyn') {
-            return props.studentData.student[0]
-        } else if (props.eachStudentData.name === 'Aranka') {
-            return props.studentData.student[1]
-        } else if (props.eachStudentData.name === 'Floris') {
-            return props.studentData.student[2]
-        } else if (props.eachStudentData.name === 'Hector') {
-            return props.studentData.student[3]
-        } else if (props.eachStudentData.name === 'Martina') {
-            return props.studentData.student[4]
-        } else if (props.eachStudentData.name === 'Maurits') {
-            return props.studentData.student[5]
-        } else if (props.eachStudentData.name === 'Rahima') {
-            return props.studentData.student[6]
-        } else if (props.eachStudentData.name === 'Sandra') {
-            return props.studentData.student[7]
-        } else if (props.eachStudentData.name === 'Wietske') {
-            return props.studentData.student[8]
-        } else if (props.eachStudentData.name === 'Storm') {
-            return props.studentData.student[9]
-        }
-        return displaySingleStudent
+        let match = props.studentData.student.find(student => {
+            return student.name === props.eachStudentData.name
+        })
+        return match
     }
-    // console.log(displaySingleStudent())
-
-    // hoe kan ik elke index van het object oproepen ipv 10 if statements
-    // const displaySingleStudent2 = () => {
-    //     if (props.eachStudentData.name === props.studentData.student.name) {
-
-    //         return props.studentData.student
-    //     }
-    // }
-    // console.log(displaySingleStudent2())
 
     const assignmentStudents = displaySingleStudent().assignments
     const wincTheme = props.wincTheme.default
-
 
     const assignmentStudentsLine = assignmentStudents.map(avg => ({
         assignment: avg.name,
